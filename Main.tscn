@@ -72,14 +72,25 @@ offset_right = 586.0
 offset_bottom = 354.0
 color = Color(1, 0, 0, 1)
 
-[node name="Button" type="Button" parent="ApplicationHandler"]
+[node name="AcceptButton" type="Button" parent="ApplicationHandler"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="RejectButton" type="Button" parent="ApplicationHandler"]
 offset_right = 8.0
 offset_bottom = 8.0
 
 [connection signal="pressed" from="ToolHandler/YesNoTool" to="ToolHandler" method="_on_YesNoTool_pressed"]
 [connection signal="pressed" from="ToolHandler/Quit" to="ToolHandler" method="_on_QuitButton_pressed"]
+[connection signal="app_processed" from="ApplicationHandler" to="." method="_compute_points"]
 [connection signal="next_day" from="ApplicationHandler" to="." method="_pass_day"]
 [connection signal="mouse_entered" from="ApplicationHandler/Accept" to="ApplicationHandler" method="_entered" binds= [1]]
 [connection signal="mouse_exited" from="ApplicationHandler/Accept" to="ApplicationHandler" method="_exited"]
 [connection signal="mouse_entered" from="ApplicationHandler/Reject" to="ApplicationHandler" method="_entered" binds= [2]]
 [connection signal="mouse_exited" from="ApplicationHandler/Reject" to="ApplicationHandler" method="_exited"]
+[connection signal="mouse_entered" from="ApplicationHandler/AcceptButton" to="ApplicationHandler" method="_entered" binds= [1]]
+[connection signal="mouse_exited" from="ApplicationHandler/AcceptButton" to="ApplicationHandler" method="_exited"]
+[connection signal="pressed" from="ApplicationHandler/AcceptButton" to="ApplicationHandler" method="process_application"]
+[connection signal="mouse_entered" from="ApplicationHandler/RejectButton" to="ApplicationHandler" method="_entered" binds= [2]]
+[connection signal="mouse_exited" from="ApplicationHandler/RejectButton" to="ApplicationHandler" method="_exited"]
+[connection signal="pressed" from="ApplicationHandler/RejectButton" to="ApplicationHandler" method="process_application"]
