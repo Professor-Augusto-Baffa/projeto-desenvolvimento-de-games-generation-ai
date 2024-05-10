@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ubppnvpbakx"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_x0xpo"]
+[ext_resource type="Script" path="res://ToolHandler.gd" id="2_31xt7"]
+[ext_resource type="Script" path="res://ApplicationHandler.gd" id="3_6aesa"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_x0xpo")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.32549, 0.866667, 0.552941, 1)
+
+[node name="ToolBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 170.0
+offset_bottom = 648.0
+color = Color(0.196078, 0.537255, 0.337255, 1)
+
+[node name="dayLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1058.0
+offset_top = 50.0
+offset_right = 1098.0
+offset_bottom = 73.0
+
+[node name="pointLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Window" type="Window" parent="."]
+initial_position = 1
+visible = false
+
+[node name="ToolHandler" type="CanvasLayer" parent="."]
+script = ExtResource("2_31xt7")
+
+[node name="YesNoTool" type="Button" parent="ToolHandler"]
+offset_left = 34.0
+offset_top = 37.0
+offset_right = 131.0
+offset_bottom = 91.0
+text = "Verification
+Tool"
+
+[node name="Quit" type="Button" parent="ToolHandler"]
+offset_left = 66.0
+offset_top = 578.0
+offset_right = 108.0
+offset_bottom = 609.0
+text = "Quit"
+
+[node name="ApplicationHandler" type="CanvasLayer" parent="."]
+script = ExtResource("3_6aesa")
+
+[node name="Accept" type="ColorRect" parent="ApplicationHandler"]
+offset_left = 498.0
+offset_top = 214.0
+offset_right = 538.0
+offset_bottom = 254.0
+color = Color(0, 1, 0, 1)
+
+[node name="Reject" type="ColorRect" parent="ApplicationHandler"]
+offset_left = 546.0
+offset_top = 314.0
+offset_right = 586.0
+offset_bottom = 354.0
+color = Color(1, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ApplicationHandler"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="ToolHandler/YesNoTool" to="ToolHandler" method="_on_YesNoTool_pressed"]
+[connection signal="pressed" from="ToolHandler/Quit" to="ToolHandler" method="_on_QuitButton_pressed"]
+[connection signal="next_day" from="ApplicationHandler" to="." method="_pass_day"]
+[connection signal="mouse_entered" from="ApplicationHandler/Accept" to="ApplicationHandler" method="_entered" binds= [1]]
+[connection signal="mouse_exited" from="ApplicationHandler/Accept" to="ApplicationHandler" method="_exited"]
+[connection signal="mouse_entered" from="ApplicationHandler/Reject" to="ApplicationHandler" method="_entered" binds= [2]]
+[connection signal="mouse_exited" from="ApplicationHandler/Reject" to="ApplicationHandler" method="_exited"]

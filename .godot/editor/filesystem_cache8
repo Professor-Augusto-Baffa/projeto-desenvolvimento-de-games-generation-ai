@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1715360191
+Application.gd::GDScript::-1::1715319613::0::1::::Application<>Node<>::
+ApplicationHandler.gd::GDScript::-1::1715320051::0::1::::<>CanvasLayer<>::
+icon.svg::CompressedTexture2D::1499134136309593269::1714323053::1714323068::1::::<><>::
+Main.gd::GDScript::-1::1715320911::0::1::::<>Node<>::
+Main.tscn::PackedScene::6779504857140582467::1715320911::0::1::::<><>::res://Main.gd<>res://ToolHandler.gd<>res://ApplicationHandler.gd
+README.md::TextFile::-1::1715005139::0::1::::<><>::
+ToolHandler.gd::GDScript::-1::1715320012::0::1::::<>CanvasLayer<>::
