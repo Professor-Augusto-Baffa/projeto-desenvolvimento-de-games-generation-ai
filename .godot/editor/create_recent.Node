@@ -2,14 +2,13 @@ RichTextLabel
 Label
 VBoxContainer
 TextureRect
-Node
 ColorRect
 HBoxContainer
 CanvasLayer
+Node
 Button
 Control
 Container
 Window
 SubViewport
 AcceptDialog
-Node2D
