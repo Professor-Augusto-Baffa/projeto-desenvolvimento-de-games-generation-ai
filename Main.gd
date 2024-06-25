@@ -3,13 +3,14 @@ extends Node
 var game_size = DisplayServer.screen_get_size()
 var day : int = 1
 var points : int = 0
+var dialog : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.get_viewport().set_embedding_subwindows(false)
 	$Background.size = game_size
 	$ToolBar.size = Vector2(game_size[0] * 0.15, game_size[1])
-	instantiate_labels()
+	initialize_labels()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,7 +34,7 @@ func _compute_points(variance):
 	points += variance
 	$pointLabel.text = "Points: " + str(points)
 
-func instantiate_labels():
+func initialize_labels():
 	$dayLabel.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
 	$dayLabel.position = Vector2(game_size[0] * 0.9, game_size[1] * 0.05)
 	$dayLabel.show()

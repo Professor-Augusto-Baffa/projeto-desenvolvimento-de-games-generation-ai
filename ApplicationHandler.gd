@@ -39,20 +39,20 @@ func _input(event):
 func appendRandomApplications(num):
 	for i in range(num):
 		var app = Application.new()
-		app.window = instantiate_window()
+		app.window = initialize_window()
 		app.window.title = str(i+1)
 		app.correctness = true
 		app.points = 1
 		applications.append(app)
 
-func instantiate_window():
+func initialize_window():
 	var newWindow : Window = Window.new()
 	newWindow.hide()
 	self.add_child(newWindow)
 	newWindow.always_on_top = true
 	newWindow.size = Vector2(game_size[0] * 0.25, game_size[1] * 0.3)
-	newWindow.set_position(Vector2(game_size[0] * 0.5 - newWindow.size[0] * 0.5,
-								   game_size[1] * 0.5 - newWindow.size[1] * 0.5))
+	newWindow.position = Vector2(game_size[0] * 0.5 - newWindow.size[0] * 0.5,
+								 game_size[1] * 0.5 - newWindow.size[1] * 0.5)
 	newWindow.unresizable = true
 	return newWindow
 
@@ -66,20 +66,20 @@ func _exited():
 
 func initialize_processors():
 	$Accept.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$Accept.set_position(Vector2(game_size[0] * 0.9 - $Accept.size[0] * 0.5,
-								 game_size[1] * 0.4 - $Accept.size[1] * 0.5))
+	$Accept.position = Vector2(game_size[0] * 0.9 - $Accept.size[0] * 0.5,
+								 game_size[1] * 0.4 - $Accept.size[1] * 0.5)
 	
 	$Reject.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$Reject.set_position(Vector2(game_size[0] * 0.9 - $Reject.size[0] * 0.5,
-								 game_size[1] * 0.6 - $Reject.size[1] * 0.5))
+	$Reject.position = Vector2(game_size[0] * 0.9 - $Reject.size[0] * 0.5,
+								 game_size[1] * 0.6 - $Reject.size[1] * 0.5)
 								
 	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$AcceptButton.set_position(Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
-									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5))
+	$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
+									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5)
 	
 	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$RejectButton.set_position(Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
-									   game_size[1] * 0.6 - $RejectButton.size[1] * 0.5))
+	$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
+									game_size[1] * 0.6 - $RejectButton.size[1] * 0.5)
 
 func summon_application():
 	applications[0].window.show()
