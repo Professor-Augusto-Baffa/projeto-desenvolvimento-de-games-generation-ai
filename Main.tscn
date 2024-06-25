@@ -86,27 +86,12 @@ offset_bottom = 8.0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HContainer" type="HBoxContainer" parent="DialogHandler/DialogBg"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Bordere" type="ColorRect" parent="DialogHandler/DialogBg/HContainer"]
+[node name="Dialog" type="RichTextLabel" parent="DialogHandler/DialogBg"]
 layout_mode = 2
-
-[node name="Faceset" type="TextureRect" parent="DialogHandler/DialogBg/HContainer/Bordere"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VContainer" type="VBoxContainer" parent="DialogHandler/DialogBg/HContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="DialogHandler/DialogBg/HContainer/VContainer"]
-layout_mode = 2
-
-[node name="Dialog" type="RichTextLabel" parent="DialogHandler/DialogBg/HContainer/VContainer"]
-layout_mode = 2
+offset_left = 4.0
+offset_top = 27.0
+offset_right = 5.0
+offset_bottom = 27.0
 
 [connection signal="pressed" from="ToolHandler/YesNoTool" to="ToolHandler" method="_on_YesNoTool_pressed"]
 [connection signal="pressed" from="ToolHandler/Quit" to="ToolHandler" method="_on_QuitButton_pressed"]
