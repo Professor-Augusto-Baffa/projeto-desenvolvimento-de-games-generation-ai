@@ -1,23 +1,27 @@
 extends CanvasLayer
 
+var halt_game
 var game_size
 var tools : Array
 var yesNoWindow : Window
+var dialog : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	halt_game = get_node("/root/Main").halt_game
 	game_size = get_node("/root/Main").game_size
+	dialog = get_node("/root/Main").dialog
 	tools = Array()
 	self.get_viewport().set_embedding_subwindows(false)
 	initialize_buttons()
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	clamp_windows()
+	if (halt_game):
+		return
+	
+	clamp_windows(tools)
 	unminimize_windows(tools)
-	pass
 
 func _on_YesNoTool_pressed():
 	if (yesNoWindow == null):
@@ -52,9 +56,10 @@ func initialize_window():
 	newWindow.close_requested.connect(_on_CloseWindow.bind(newWindow))
 	return newWindow
 
-func clamp_windows():
-	if (yesNoWindow != null):
-		clamp_window(yesNoWindow)
+func clamp_windows(windows):
+	for window in windows:
+		if (window != null):
+			clamp_window(window)
 
 func clamp_window(window):
 	window.position.x = clamp(window.position.x, 0, game_size.x - window.size.x)

@@ -1,9 +1,11 @@
 extends Node
 
+var halt_game : bool = true
 var game_size = DisplayServer.screen_get_size()
-var day : int = 1
-var points : int = 0
 var dialog : bool = false
+var day : int = 0
+var points : int = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

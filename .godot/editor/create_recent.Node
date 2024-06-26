@@ -1,8 +1,8 @@
+ColorRect
 RichTextLabel
 Label
 VBoxContainer
 TextureRect
-ColorRect
 HBoxContainer
 CanvasLayer
 Node

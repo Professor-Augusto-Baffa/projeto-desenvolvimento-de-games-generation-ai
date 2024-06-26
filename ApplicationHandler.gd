@@ -3,24 +3,29 @@ extends CanvasLayer
 signal next_day
 signal app_processed(value)
 
+var halt_game
 var game_size
 var applications : Array
 var apps_per_day : int
 var is_processing_app : bool = false
-
 var processing_type : int
+var dialog : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	halt_game = get_node("/root/Main").halt_game
 	game_size = get_node("/root/Main").game_size
+	dialog = get_node("/root/Main").dialog
 	applications = Array()
 	apps_per_day = 3
 	initialize_processors()
-	appendRandomApplications(apps_per_day)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (halt_game):
+		return
+	
 	if (applications.is_empty()):
 		next_day.emit()
 		appendRandomApplications(apps_per_day)
@@ -28,9 +33,17 @@ func _process(delta):
 	if (not is_processing_app):
 		summon_application()
 	
+	check_dialog()
+	
 	unminimize_windows()
 	clamp_windows()
-	
+
+func check_dialog():
+	if (dialog && applications[0].window.is_visible()):
+		applications[0].window.visible = false
+	elif (not dialog):
+		applications[0].window.visible = true
+
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		var mouse_position = get_viewport().get_mouse_position()
