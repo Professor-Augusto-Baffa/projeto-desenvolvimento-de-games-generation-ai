@@ -109,16 +109,16 @@ func clamp_window(window):
 func process_application():
 	var points
 	if (processing_type != 0):
-		if (processing_type == 1):
-			if (applications[0].correctness):
+		match [processing_type, applications[0].correctness]:
+			[1,true]:
 				points = applications[0].points
-			else:
+			[1,false]:
 				points = -applications[0].points
-		elif (processing_type == 2):
-			if (applications[0].correctness):
+			[2,true]:
 				points = -applications[0].points
-			else:
+			[2,false]:
 				points = applications[0].points
+	
 	applications[0].window.hide()
 	applications.remove_at(0)
 	app_processed.emit(points)

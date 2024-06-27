@@ -73,6 +73,10 @@ offset_left = 4.0
 offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 27.0
+text = "asdsadasdasdasdasd
+asdasdads
+asdasdasd
+asdasd"
 fit_content = true
 
 [node name="Background" type="ColorRect" parent="."]
@@ -85,7 +89,7 @@ color = Color(0.32549, 0.866667, 0.552941, 1)
 layout_mode = 0
 offset_right = 170.0
 offset_bottom = 648.0
-color = Color(0.196078, 0.537255, 0.337255, 0.941176)
+color = Color(0.196078, 0.537255, 0.337255, 1)
 
 [node name="dayLabel" type="Label" parent="."]
 layout_mode = 0

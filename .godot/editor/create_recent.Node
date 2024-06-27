@@ -1,3 +1,5 @@
+Button
+Panel
 ColorRect
 RichTextLabel
 Label
@@ -6,9 +8,7 @@ TextureRect
 HBoxContainer
 CanvasLayer
 Node
-Button
 Control
 Container
 Window
 SubViewport
-AcceptDialog

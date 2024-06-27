@@ -27,3 +27,9 @@ func initialize_dialog():
 	
 	$DialogBorder/DialogBg/Dialog.size = $DialogBorder/DialogBg.size
 	$DialogBorder/DialogBg/Dialog.position = $DialogBorder/DialogBg.position
+	
+	$DialogBorder/DialogBg/Dialog.push_color(Color(1,0,0))
+	$DialogBorder/DialogBg/Dialog.add_text("some white text\n")
+	$DialogBorder/DialogBg/Dialog.add_text("some white text\n")
+	$DialogBorder/DialogBg/Dialog.pop()
+	$DialogBorder/DialogBg/Dialog.add_text("some white text\n")

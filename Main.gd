@@ -5,7 +5,7 @@ var game_size = DisplayServer.screen_get_size()
 var dialog : bool = false
 var day : int = 0
 var points : int = 0
-
+var time : Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,6 +36,9 @@ func story_dialog_progress():
 			pass
 		3:
 			pass
+
+func new_game():
+	pass
 
 func _pass_day():
 	day += 1
