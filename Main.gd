@@ -28,6 +28,15 @@ func _process(delta):
    ## Print the size of the viewport.
 	#print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
 
+func story_dialog_progress():
+	match day:
+		1:
+			pass
+		2:
+			pass
+		3:
+			pass
+
 func _pass_day():
 	day += 1
 	$dayLabel.text = "Day: " + str(day)

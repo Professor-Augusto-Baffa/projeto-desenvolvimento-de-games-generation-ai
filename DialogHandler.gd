@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (halt_game):
+	if (halt_game || not dialog):
 		return
 	
 	initialize_dialog()
@@ -24,3 +24,6 @@ func initialize_dialog():
 	
 	$DialogBorder/DialogBg.size = $DialogBorder.size - Vector2(10, 10)
 	$DialogBorder/DialogBg.position = Vector2(5, 5)
+	
+	$DialogBorder/DialogBg/Dialog.size = $DialogBorder/DialogBg.size
+	$DialogBorder/DialogBg/Dialog.position = $DialogBorder/DialogBg.position

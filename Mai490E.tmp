@@ -72,11 +72,6 @@ offset_left = 4.0
 offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 27.0
-text = "asdsadasdasdasdasd
-asdasdads
-asdasdasd
-asdasd"
-fit_content = true
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0

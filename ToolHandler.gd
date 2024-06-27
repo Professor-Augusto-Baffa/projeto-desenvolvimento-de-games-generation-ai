@@ -20,8 +20,8 @@ func _process(delta):
 	if (halt_game):
 		return
 	
-	clamp_windows(tools)
-	unminimize_windows(tools)
+	clamp_windows()
+	unminimize_windows()
 
 func _on_YesNoTool_pressed():
 	if (yesNoWindow == null):
@@ -56,8 +56,8 @@ func initialize_window():
 	newWindow.close_requested.connect(_on_CloseWindow.bind(newWindow))
 	return newWindow
 
-func clamp_windows(windows):
-	for window in windows:
+func clamp_windows():
+	for window in tools:
 		if (window != null):
 			clamp_window(window)
 
@@ -65,7 +65,7 @@ func clamp_window(window):
 	window.position.x = clamp(window.position.x, 0, game_size.x - window.size.x)
 	window.position.y = clamp(window.position.y, 0, game_size.y - window.size.y)
 
-func unminimize_windows(window_list):
-	for window in window_list:
+func unminimize_windows():
+	for window in tools:
 		if (window.mode == Window.MODE_MINIMIZED):
 			window.mode = Window.MODE_WINDOWED

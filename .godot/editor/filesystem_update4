@@ -1,5 +1,5 @@
 res://Main.tscn
-res://DialogHandler.gd
-res://ToolHandler.gd
 res://ApplicationHandler.gd
+res://ToolHandler.gd
 res://Main.gd
+res://DialogHandler.gd
