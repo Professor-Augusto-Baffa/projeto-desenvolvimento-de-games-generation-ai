@@ -34,6 +34,7 @@ func begin_day_dialog():
 	match day:
 		1:
 			#current_dialog = 
+			pass
 		2:
 			pass
 		3:
