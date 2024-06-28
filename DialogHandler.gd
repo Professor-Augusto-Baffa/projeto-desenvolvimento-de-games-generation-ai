@@ -25,8 +25,8 @@ func initialize_dialog():
 	$DialogBorder/DialogBg.size = $DialogBorder.size - Vector2(10, 10)
 	$DialogBorder/DialogBg.position = Vector2(5, 5)
 	
-	$DialogBorder/DialogBg/Dialog.size = $DialogBorder/DialogBg.size
-	$DialogBorder/DialogBg/Dialog.position = $DialogBorder/DialogBg.position
+	$DialogBorder/DialogBg/Dialog.size = $DialogBorder/DialogBg.size - Vector2(50, 50)
+	$DialogBorder/DialogBg/Dialog.position = Vector2(25, 25)
 	
 	$DialogBorder/DialogBg/Dialog.push_color(Color(1,0,0))
 	$DialogBorder/DialogBg/Dialog.add_text("some white text\n")
