@@ -30,19 +30,41 @@ func _on_dialog_begin(day, stage):
 	$DialogBorder.visible = true
 	for i in range(1, length + 1):
 		if (current_dialog[str(i)]["speaker"] == "CEO"):
+			$DialogBorder.color = Color(1,1,1)
+			$DialogBorder/DialogBg/Dialog.push_color(Color(1,1,1))
+			min_time = 0.08
+			max_time = 0.15
+		elif (current_dialog[str(i)]["speaker"] == "hacker"):
 			$DialogBorder.color = Color(1,0,0)
 			$DialogBorder/DialogBg/Dialog.push_color(Color(1,0,0))
-			min_time = 0.1
-			max_time = 0.2
-		elif (current_dialog[str(i)]["speaker"] == "hacker"):
-			$DialogBorder.color = Color(0,0,1)
-			$DialogBorder/DialogBg/Dialog.push_color(Color(0,0,1))
-			min_time = 0.05
-			max_time = 0.15
+			min_time = 0.04
+			max_time = 0.09
 		var text = current_dialog[str(i)]["content"]
 		var text_len = len(text)
 		for j in range(text_len):
 			await get_tree().create_timer(rng.randf_range(min_time, max_time)).timeout
+			var sound = rng.randi_range(1, 11)
+			match sound:
+				1:
+					$KeyPressSound1.play()
+				2:
+					$KeyPressSound2.play()
+				3:
+					$KeyPressSound3.play()
+				4:
+					$KeyPressSound4.play()
+				5:
+					$KeyPressSound5.play()
+				6:
+					$KeyPressSound6.play()
+				7:
+					$KeyPressSound7.play()
+				8:
+					$KeyPressSound8.play()
+				9:
+					$KeyPressSound9.play()
+				10:
+					$KeyPressSound10.play()
 			$DialogBorder/DialogBg/Dialog.add_text(text[j])
 		await InputEventMouseButton
 		$DialogBorder/DialogBg/Dialog.clear()

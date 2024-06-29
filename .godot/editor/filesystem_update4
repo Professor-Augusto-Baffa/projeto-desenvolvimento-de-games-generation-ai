@@ -6,3 +6,5 @@ res://Env_vermelho.tres
 res://Pause.tres
 res://ToolHandler.gd
 res://main_menu.gd
+res://DialogHandler.gd
+res://all_dialogs.json

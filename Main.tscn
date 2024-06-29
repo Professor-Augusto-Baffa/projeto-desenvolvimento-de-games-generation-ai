@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3ubppnvpbakx"]
+[gd_scene load_steps=22 format=3 uid="uid://c3ubppnvpbakx"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_x0xpo"]
 [ext_resource type="Script" path="res://ToolHandler.gd" id="2_31xt7"]
@@ -10,6 +10,16 @@
 [ext_resource type="Theme" uid="uid://denljmcgguxn6" path="res://Env_vermelho.tres" id="5_lac3q"]
 [ext_resource type="AudioStream" uid="uid://c1yd3mwc4lclp" path="res://Audio/sino_de_concluido.wav" id="5_pvlyj"]
 [ext_resource type="AudioStream" uid="uid://ujnu1mp02vdo" path="res://Audio/rejeitado.wav" id="6_ha5di"]
+[ext_resource type="AudioStream" uid="uid://kwvr15luq0in" path="res://Audio/KeyPress/keypress-001.wav" id="11_2feb3"]
+[ext_resource type="AudioStream" uid="uid://0u84mac8ftmc" path="res://Audio/KeyPress/keypress-002.wav" id="12_nsnlo"]
+[ext_resource type="AudioStream" uid="uid://dlpvsknqag14w" path="res://Audio/KeyPress/keypress-003.wav" id="13_f6k76"]
+[ext_resource type="AudioStream" uid="uid://dled6p1ifd6sr" path="res://Audio/KeyPress/keypress-004.wav" id="14_ahadr"]
+[ext_resource type="AudioStream" uid="uid://biy0hr3e74yl4" path="res://Audio/KeyPress/keypress-005.wav" id="15_t5f0j"]
+[ext_resource type="AudioStream" uid="uid://msy68t7ijis6" path="res://Audio/KeyPress/keypress-006.wav" id="16_5to1s"]
+[ext_resource type="AudioStream" uid="uid://3ue1go168jly" path="res://Audio/KeyPress/keypress-007.wav" id="17_vue57"]
+[ext_resource type="AudioStream" uid="uid://ga6f4oe5byyk" path="res://Audio/KeyPress/keypress-008.wav" id="18_oqa6t"]
+[ext_resource type="AudioStream" uid="uid://dhkv6t41ofemm" path="res://Audio/KeyPress/keypress-009.wav" id="19_it7ux"]
+[ext_resource type="AudioStream" uid="uid://80yjvw5rbnf2" path="res://Audio/KeyPress/keypress-010.wav" id="20_pbecw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dty8m"]
 
@@ -80,6 +90,36 @@ offset_bottom = 27.0
 theme_override_fonts/normal_font = ExtResource("5_h1ers")
 theme_override_font_sizes/normal_font_size = 25
 fit_content = true
+
+[node name="KeyPressSound1" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("11_2feb3")
+
+[node name="KeyPressSound2" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("12_nsnlo")
+
+[node name="KeyPressSound3" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("13_f6k76")
+
+[node name="KeyPressSound4" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("14_ahadr")
+
+[node name="KeyPressSound5" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("15_t5f0j")
+
+[node name="KeyPressSound6" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("16_5to1s")
+
+[node name="KeyPressSound7" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("17_vue57")
+
+[node name="KeyPressSound8" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("18_oqa6t")
+
+[node name="KeyPressSound9" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("19_it7ux")
+
+[node name="KeyPressSound10" type="AudioStreamPlayer2D" parent="DialogHandler"]
+stream = ExtResource("20_pbecw")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
