@@ -21,6 +21,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	current_application =  get_node("/root/Main/ApplicationHandler").current_application
+	slow_time = get_node("/root/Main/DialogHandler").slow_time
 	
 	process_time(delta)
 
@@ -53,7 +54,6 @@ func _pass_day():
 	$dayLabel.text = "Day: " + str(day)
 	time = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}
 	await get_tree().create_timer(1).timeout
-	slow_time = false
 	dialog_begin.emit(day, "begin")
 
 func _compute_points(variance):

@@ -5,6 +5,7 @@ signal dialog_end
 var halt_game
 var game_size
 var all_dialogs
+var slow_time : bool
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +32,7 @@ func _on_dialog_begin(day, stage):
 	$DialogBorder.visible = true
 	$MouseCatcher.visible = true
 	for i in range(1, length + 1):
+		slow_time = false
 		if (current_dialog[str(i)]["speaker"] == "CEO"):
 			$DialogBorder.color = Color(1,1,1)
 			$DialogBorder/DialogBg/Dialog.push_color(Color(1,1,1))
@@ -45,8 +47,9 @@ func _on_dialog_begin(day, stage):
 		var text_len = len(text)
 		for j in range(text_len):
 			await get_tree().create_timer(rng.randf_range(min_time, max_time)).timeout
-			#get_node("SoundContainer/KeyPressSound" + str(rng.randi_range(1, 11))).play()
+			#get_node("SoundContainer/KeyPressSound" + str(rng.randi_range(1, 32))).play()
 			$DialogBorder/DialogBg/Dialog.add_text(text[j])
+		slow_time = true
 		await $MouseCatcher.pressed
 		$DialogBorder/DialogBg/Dialog.clear()
 	$Filter.visible = false 
