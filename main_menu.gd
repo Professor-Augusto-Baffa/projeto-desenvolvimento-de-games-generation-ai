@@ -3,6 +3,7 @@ extends Control
 var game_size = DisplayServer.screen_get_size()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MenuMusic.play()
 	initialize_buttons()
 	pass # Replace with function body.
 
@@ -13,6 +14,7 @@ func _process(delta):
 
 
 func _on_NewGame_pressed():
+	$MenuMusic.stop()
 	get_tree().change_scene_to_file("res://Main.tscn")
 
 func initialize_buttons():

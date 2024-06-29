@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1719670245
+::res://::1719670408
 all_dialogs.json::JSON::-1::1719619788::0::1::::<><>::
 Application.gd::GDScript::-1::1715385190::0::1::::Application<>Node<>::
 ApplicationHandler.gd::GDScript::-1::1719669231::0::1::::<>CanvasLayer<>::
@@ -8,9 +8,9 @@ Env_verde.tres::Theme::7027999707175836477::1719669508::0::1::::<><>::uid://bbgi
 Env_vermelho.tres::Theme::7467538929151039221::1719669447::0::1::::<><>::uid://bprqm8aiaqwes::::res://Sprites/env_aberto_vermelho.png<>uid://cm7rlyky3sfew::::res://Sprites/env_vermelho.png
 icon.svg::CompressedTexture2D::1499134136309593269::1715385190::1719087227::1::::<><>::
 Main.gd::GDScript::-1::1719667199::0::1::::<>Node<>::
-Main.tscn::PackedScene::6779504857140582467::1719670245::0::1::::<><>::res://Main.gd<>res://ToolHandler.gd<>uid://cwwiwmiptq31v::::res://Pause.tres<>res://ApplicationHandler.gd<>uid://c7eoemnuh70i0::::res://Env_verde.tres<>res://DialogHandler.gd<>uid://duu8whkrbirv1::::res://Font/FiraCode-Medium.ttf<>uid://denljmcgguxn6::::res://Env_vermelho.tres<>uid://c1yd3mwc4lclp::::res://Audio/sino_de_concluido.wav<>uid://ujnu1mp02vdo::::res://Audio/rejeitado.wav
-main_menu.gd::GDScript::-1::1719531322::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::4557948380994367968::1719670245::0::1::::<><>::res://main_menu.gd
+Main.tscn::PackedScene::6779504857140582467::1719670408::0::1::::<><>::res://Main.gd<>res://ToolHandler.gd<>uid://cwwiwmiptq31v::::res://Pause.tres<>res://ApplicationHandler.gd<>uid://c7eoemnuh70i0::::res://Env_verde.tres<>res://DialogHandler.gd<>uid://duu8whkrbirv1::::res://Font/FiraCode-Medium.ttf<>uid://denljmcgguxn6::::res://Env_vermelho.tres<>uid://c1yd3mwc4lclp::::res://Audio/sino_de_concluido.wav<>uid://ujnu1mp02vdo::::res://Audio/rejeitado.wav
+main_menu.gd::GDScript::-1::1719670603::0::1::::<>Control<>::
+main_menu.tscn::PackedScene::4557948380994367968::1719670603::0::1::::<><>::res://main_menu.gd<>uid://bgwkk42mlrar7::::res://Audio/menu_inicial.wav
 README.md::TextFile::-1::1715461332::0::1::::<><>::
 Pause.tres::Theme::6362937904766489993::1719669819::0::1::::<><>::uid://c6sc3j7ckyen5::::res://Sprites/logo_so_pause.png
 ToolHandler.gd::GDScript::-1::1719669956::0::1::::<>CanvasLayer<>::
@@ -21,7 +21,7 @@ atmosfera_sinistra.wav::AudioStreamWAV::4378301977139494445::1719533513::1719533
 cortou_energia.ogg::AudioStreamOggVorbis::4898273237664010849::1719533945::1719619489::1::::<><>::
 final_monotono.wav::AudioStreamWAV::6932833984758140625::1719533786::1719533787::1::::<><>::
 mensagem_hacker.wav::AudioStreamWAV::2638159831829868559::1719533456::1719533456::1::::<><>::
-menu_inicial.wav::AudioStreamWAV::2853596649424791002::1719533553::1719533554::1::::<><>::
+menu_inicial.wav::AudioStreamWAV::2853596649424791002::1719533553::1719670612::1::::<><>::
 musica_tensa_passos.ogg::AudioStreamOggVorbis::130031083283728511::1719533851::1719619489::1::::<><>::
 pc_desligando.wav::AudioStreamWAV::8814820512082209615::1719535119::1719535119::1::::<><>::
 pc_ligando.wav::AudioStreamWAV::3441080977880293923::1719535119::1719535119::1::::<><>::
@@ -68,7 +68,7 @@ FiraCode-Regular.ttf::FontFile::4435742369344109030::1719181726::1719181727::1::
 FiraCode-SemiBold.ttf::FontFile::6857147618695235885::1719181726::1719181727::1::::<><>::
 FiraCode-VariableFont_wght.ttf::FontFile::9087431322870398783::1719181726::1719181727::1::::<><>::
 ::res://GDD/::1715461373
-::res://Sprites/::1719670359
+::res://Sprites/::1719670360
 botao_envio.png::CompressedTexture2D::6981311404520729797::1719621483::1719667675::1::::<><>::
 Circuito_transparente.png::CompressedTexture2D::5035147704790229989::1719178335::1719178356::1::::<><>::
 env_aberto_azul.png::CompressedTexture2D::3181669805616517293::1719621483::1719667675::1::::<><>::
