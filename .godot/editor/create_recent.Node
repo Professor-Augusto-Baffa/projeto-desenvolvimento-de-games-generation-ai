@@ -1,13 +1,13 @@
+ColorRect
+TextureRect
 AudioStreamPlayer2D
 Timer
 Panel
 PanelContainer
 Button
-ColorRect
 RichTextLabel
 Label
 VBoxContainer
-TextureRect
 HBoxContainer
 CanvasLayer
 Node

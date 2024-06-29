@@ -18,6 +18,8 @@ func _on_NewGame_pressed():
 	get_tree().change_scene_to_file("res://Main.tscn")
 
 func initialize_buttons():
+	$Background.size = Vector2(game_size[0], game_size[1])
+	$ColorRect.size = Vector2(game_size[0], game_size[1])
 	$NewGame.size = Vector2(game_size[0] * 0.2, game_size[1] * 0.1)
 	$NewGame.position = Vector2(game_size[0]/2 - $NewGame.size[0]/2,
 								game_size[1]/2 - $NewGame.size[1]/2)
