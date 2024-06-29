@@ -54,8 +54,8 @@ func _on_QuitButton_pressed():
 func initialize_buttons():
 	$YesNoTool.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
 	$YesNoTool.position = Vector2(game_size[0] * 0.025, game_size[1] * 0.05)
-	$Quit.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$Quit.position = Vector2(game_size[0] * 0.025, game_size[1] * 0.85)
+	$Quit.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.17)
+	$Quit.position = Vector2(game_size[0] * 0.025, game_size[1] * 0.8)
 	
 func initialize_window():
 	var newWindow : Window = Window.new()

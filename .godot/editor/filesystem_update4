@@ -2,3 +2,6 @@ res://Main.tscn
 res://Env_verde.tres
 res://main_menu.tscn
 res://ApplicationHandler.gd
+res://Env_vermelho.tres
+res://Pause.tres
+res://ToolHandler.gd
