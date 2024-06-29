@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ubppnvpbakx"]
+[gd_scene load_steps=7 format=3 uid="uid://c3ubppnvpbakx"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_x0xpo"]
 [ext_resource type="Script" path="res://ToolHandler.gd" id="2_31xt7"]
 [ext_resource type="Script" path="res://ApplicationHandler.gd" id="3_6aesa"]
+[ext_resource type="Theme" uid="uid://c7eoemnuh70i0" path="res://Env_verde.tres" id="4_8eunh"]
 [ext_resource type="Script" path="res://DialogHandler.gd" id="4_l3v62"]
 [ext_resource type="FontFile" uid="uid://duu8whkrbirv1" path="res://Font/FiraCode-Medium.ttf" id="5_h1ers"]
 
@@ -35,6 +36,7 @@ script = ExtResource("3_6aesa")
 [node name="AcceptButton" type="Button" parent="ApplicationHandler"]
 offset_right = 8.0
 offset_bottom = 8.0
+theme = ExtResource("4_8eunh")
 
 [node name="RejectButton" type="Button" parent="ApplicationHandler"]
 offset_right = 8.0
@@ -105,3 +107,5 @@ visible = false
 [connection signal="mouse_entered" from="ApplicationHandler/RejectButton" to="ApplicationHandler" method="_entered" binds= [2]]
 [connection signal="mouse_exited" from="ApplicationHandler/RejectButton" to="ApplicationHandler" method="_exited"]
 [connection signal="pressed" from="ApplicationHandler/RejectButton" to="ApplicationHandler" method="process_application"]
+[connection signal="dialog_end" from="DialogHandler" to="ToolHandler" method="_on_dialog_end"]
+[connection signal="dialog_end" from="DialogHandler" to="ApplicationHandler" method="_on_dialog_end"]

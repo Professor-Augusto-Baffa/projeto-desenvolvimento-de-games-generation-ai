@@ -5,3 +5,4 @@ res://all_dialogs.json
 res://DialogHandler.gd
 res://ToolHandler.gd
 res://ApplicationHandler.gd
+res://Env_verde.tres

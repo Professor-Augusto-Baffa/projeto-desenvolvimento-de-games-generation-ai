@@ -27,7 +27,7 @@ func _on_dialog_begin(day, stage):
 	var length = len(current_dialog)
 	var min_time
 	var max_time
-	
+	$DialogBorder.visible = true
 	for i in range(1, length + 1):
 		if (current_dialog[str(i)]["speaker"] == "CEO"):
 			$DialogBorder.color = Color(1,0,0)
@@ -44,10 +44,19 @@ func _on_dialog_begin(day, stage):
 		for j in range(text_len):
 			await get_tree().create_timer(rng.randf_range(min_time, max_time)).timeout
 			$DialogBorder/DialogBg/Dialog.add_text(text[j])
+		await InputEventMouseButton
 		$DialogBorder/DialogBg/Dialog.clear()
-		await get_tree()
-
+		
+	
 	$DialogBorder.visible = false
+	dialog_end.emit()
+
+#func _input(event):
+   ## Mouse in viewport coordinates.
+	#if event is InputEventMouseButton:
+		#print("Mouse Click/Unclick at: ", event.position)
+	#elif event is InputEventMouseMotion:
+		#print("Mouse Motion at: ", event.position)
 
 func initialize_dialog():
 	$DialogBorder.size = Vector2(game_size[0] * 0.6, game_size[1] * 0.6)
@@ -59,12 +68,6 @@ func initialize_dialog():
 	
 	$DialogBorder/DialogBg/Dialog.size = $DialogBorder/DialogBg.size - Vector2(50, 50)
 	$DialogBorder/DialogBg/Dialog.position = Vector2(25, 25)
-	
-	#$DialogBorder/DialogBg/Dialog.push_color(Color(1,0,0))
-	#$DialogBorder/DialogBg/Dialog.add_text("some white text\n")
-	#$DialogBorder/DialogBg/Dialog.add_text("some white text\n")
-	#$DialogBorder/DialogBg/Dialog.pop()
-	#$DialogBorder/DialogBg/Dialog.add_text("some white text\n")
 	
 func read_json_file(file_path):
 	var json = JSON.new()

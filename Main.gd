@@ -21,19 +21,10 @@ func _ready():
 func _process(delta):
 	current_application =  get_node("/root/Main/ApplicationHandler").current_application
 
-#func _input(event):
-   ## Mouse in viewport coordinates.
-	#if event is InputEventMouseButton:
-		#print("Mouse Click/Unclick at: ", event.position)
-	#elif event is InputEventMouseMotion:
-		#print("Mouse Motion at: ", event.position)
-#
-   ## Print the size of the viewport.
-	#print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
-
 func _pass_day():
 	if (day != 0):
 		dialog_begin.emit(day, "end")
+		await $DialogHandler.dialog_end
 	day += 1
 	$dayLabel.text = "Day: " + str(day)
 	time = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}

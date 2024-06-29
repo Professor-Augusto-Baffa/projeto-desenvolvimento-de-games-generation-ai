@@ -72,11 +72,25 @@ func initialize_window():
 
 func _entered(node):
 	processing_type = node
-	print(processing_type)
+	if (node == 1):
+		$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.16)
+		$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
+									   game_size[1] * 0.37 - $AcceptButton.size[1] * 0.5)
+	if (node == 2):
+		$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.16)
+		$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
+										game_size[1] * 0.57 - $RejectButton.size[1] * 0.5)
 
 func _exited():
 	processing_type = 0
-	print(processing_type)
+	
+	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
+	$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
+									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5)
+	
+	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
+	$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
+									game_size[1] * 0.6 - $RejectButton.size[1] * 0.5)
 
 func initialize_processors():
 	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
