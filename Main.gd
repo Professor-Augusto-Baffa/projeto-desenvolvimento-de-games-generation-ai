@@ -15,6 +15,7 @@ var cumulative_slow_time : float
 func _ready():
 	self.get_viewport().set_embedding_subwindows(false)
 	$Background.size = game_size
+	$Circuitinho.size = Vector2(game_size[0] * 1.2, game_size[1] * 1.2)
 	$ToolBar.size = Vector2(game_size[0] * 0.15, game_size[1])
 	initialize_labels()
 

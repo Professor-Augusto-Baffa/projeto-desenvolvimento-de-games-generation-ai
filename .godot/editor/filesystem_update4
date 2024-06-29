@@ -8,3 +8,4 @@ res://ToolHandler.gd
 res://main_menu.gd
 res://DialogHandler.gd
 res://all_dialogs.json
+res://Main.gd

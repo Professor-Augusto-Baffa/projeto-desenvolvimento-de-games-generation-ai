@@ -1,10 +1,10 @@
+TextureRect
 ColorRect
 CanvasLayer
 Button
 Control
 Container
 Label
-TextureRect
 AudioStreamPlayer2D
 Timer
 Panel
