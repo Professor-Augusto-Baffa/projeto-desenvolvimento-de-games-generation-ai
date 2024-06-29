@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5650j7wh0o21"]
+[gd_scene load_steps=5 format=3 uid="uid://b5650j7wh0o21"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_uqrlr"]
 [ext_resource type="AudioStream" uid="uid://bgwkk42mlrar7" path="res://Audio/menu_inicial.wav" id="2_vw3kb"]
 [ext_resource type="Texture2D" uid="uid://dbrk5n03q1jqq" path="res://Sprites/tela_menu.png" id="3_7t2d4"]
+[ext_resource type="Texture2D" uid="uid://3rf4vanswmlc" path="res://Sprites/logo_escrita.png" id="3_8m7l1"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -23,7 +24,13 @@ texture = ExtResource("3_7t2d4")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.133333, 0.392157, 0.243137, 0.733333)
+color = Color(0.105882, 0.32549, 0.2, 0.878431)
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_8m7l1")
 
 [node name="NewGame" type="Button" parent="."]
 layout_mode = 0

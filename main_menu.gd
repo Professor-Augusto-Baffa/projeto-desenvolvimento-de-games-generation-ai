@@ -20,6 +20,9 @@ func _on_NewGame_pressed():
 func initialize_buttons():
 	$Background.size = Vector2(game_size[0], game_size[1])
 	$ColorRect.size = Vector2(game_size[0], game_size[1])
+	$Logo.size = Vector2(game_size[0] * 0.26, game_size[1] * 0.08)
+	$Logo.position = Vector2(game_size[0]/2 - $Logo.size[0]/2,
+								game_size[1]/3 - $Logo.size[1]/2)
 	$NewGame.size = Vector2(game_size[0] * 0.2, game_size[1] * 0.1)
 	$NewGame.position = Vector2(game_size[0]/2 - $NewGame.size[0]/2,
 								game_size[1]/2 - $NewGame.size[1]/2)

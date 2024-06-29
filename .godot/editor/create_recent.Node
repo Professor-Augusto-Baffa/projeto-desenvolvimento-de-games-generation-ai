@@ -1,6 +1,6 @@
+TextureRect
 AudioStreamPlayer2D
 ColorRect
-TextureRect
 Timer
 Panel
 PanelContainer
