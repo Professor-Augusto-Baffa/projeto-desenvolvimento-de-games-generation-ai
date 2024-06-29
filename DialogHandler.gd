@@ -1,31 +1,58 @@
 extends CanvasLayer
 
+signal dialog_end
+
 var halt_game
 var game_size
-var dialog
 var all_dialogs
+var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	halt_game = get_node("/root/Main").halt_game
 	game_size = get_node("/root/Main").game_size
-	dialog = get_node("/root/Main").dialog
 	all_dialogs = read_json_file("res://all_dialogs.json")
-	print(all_dialogs)
+	print(all_dialogs[str(1)]["begin"][str(1)])
 	initialize_dialog()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (halt_game || not dialog):
+	if (halt_game):
 		return
 	
 	initialize_dialog()
+
+func _on_dialog_begin(day, stage):
+	var current_dialog = all_dialogs[str(day)][stage]
+	var length = len(current_dialog)
+	var min_time
+	var max_time
+	
+	for i in range(1, length + 1):
+		if (current_dialog[str(i)]["speaker"] == "CEO"):
+			$DialogBorder.color = Color(1,0,0)
+			$DialogBorder/DialogBg/Dialog.push_color(Color(1,0,0))
+			min_time = 0.1
+			max_time = 0.2
+		elif (current_dialog[str(i)]["speaker"] == "hacker"):
+			$DialogBorder.color = Color(0,0,1)
+			$DialogBorder/DialogBg/Dialog.push_color(Color(0,0,1))
+			min_time = 0.05
+			max_time = 0.15
+		var text = current_dialog[str(i)]["content"]
+		var text_len = len(text)
+		for j in range(text_len):
+			await get_tree().create_timer(rng.randf_range(min_time, max_time)).timeout
+			$DialogBorder/DialogBg/Dialog.add_text(text[j])
+		$DialogBorder/DialogBg/Dialog.clear()
+		await get_tree()
+
+	$DialogBorder.visible = false
 
 func initialize_dialog():
 	$DialogBorder.size = Vector2(game_size[0] * 0.6, game_size[1] * 0.6)
 	$DialogBorder.position = Vector2(game_size[0] * 0.5 - $DialogBorder.size[0] * 0.5,
 									game_size[1] * 0.5 - $DialogBorder.size[1] * 0.5)
-	
-	$DialogBorder.visible = false
 	
 	$DialogBorder/DialogBg.size = $DialogBorder.size - Vector2(10, 10)
 	$DialogBorder/DialogBg.position = Vector2(5, 5)

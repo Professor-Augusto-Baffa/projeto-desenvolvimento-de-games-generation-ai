@@ -1,9 +1,11 @@
 extends Node
 
-var halt_game : bool = true
+signal dialog_begin(day, stage)
+
+var halt_game : bool = false
 var game_size = DisplayServer.screen_get_size()
-var dialog : bool = false
 var day : int = 0
+var current_application : int
 var points : int = 0
 var time : Dictionary
 var slow_time : bool
@@ -17,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	current_application =  get_node("/root/Main/ApplicationHandler").current_application
 
 #func _input(event):
    ## Mouse in viewport coordinates.
@@ -29,39 +31,14 @@ func _process(delta):
    ## Print the size of the viewport.
 	#print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
 
-func begin_day_dialog():
-	match day:
-		1:
-			#current_dialog = 
-			pass
-		2:
-			pass
-		3:
-			pass
-		_:
-			pass
-
-func end_day_dialog():
-	match day:
-		1:
-			pass
-		2:
-			pass
-		3:
-			pass
-		_:
-			pass
-
-func new_game():
-	pass
-
 func _pass_day():
-	end_day_dialog()
+	if (day != 0):
+		dialog_begin.emit(day, "end")
 	day += 1
 	$dayLabel.text = "Day: " + str(day)
 	time = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}
 	slow_time = false
-	begin_day_dialog()
+	dialog_begin.emit(day, "begin")
 
 func _compute_points(variance):
 	points += variance

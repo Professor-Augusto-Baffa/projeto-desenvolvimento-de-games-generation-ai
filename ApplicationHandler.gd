@@ -7,15 +7,14 @@ var halt_game
 var game_size
 var applications : Array
 var apps_per_day : int
+var current_application : int
 var is_processing_app : bool = false
 var processing_type : int
-var dialog : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	halt_game = get_node("/root/Main").halt_game
 	game_size = get_node("/root/Main").game_size
-	dialog = get_node("/root/Main").dialog
 	applications = Array()
 	apps_per_day = 3
 	initialize_processors()
@@ -27,21 +26,23 @@ func _process(delta):
 		return
 	
 	if (applications.is_empty()):
-		next_day.emit()
 		appendRandomApplications(apps_per_day)
+		current_application = 1
+		next_day.emit()
 	
 	if (not is_processing_app):
 		summon_application()
 	
-	check_dialog()
-	
 	unminimize_windows()
 	clamp_windows()
 
-func check_dialog():
-	if (dialog && applications[0].window.is_visible()):
+func _on_dialog_begin(_a,_b):
+	if (applications[0].window.is_visible()):
+		
 		applications[0].window.visible = false
-	elif (not dialog):
+
+func _on_dialog_end():
+	if (not applications[0].window.is_visible()):
 		applications[0].window.visible = true
 
 func _input(event):
@@ -110,7 +111,7 @@ func process_application():
 				points = -applications[0].points
 			[2,false]:
 				points = applications[0].points
-	
+	current_application += 1
 	applications[0].window.hide()
 	applications.remove_at(0)
 	app_processed.emit(points)
