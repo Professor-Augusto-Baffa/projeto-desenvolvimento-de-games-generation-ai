@@ -78,14 +78,6 @@ func _exited():
 	print(processing_type)
 
 func initialize_processors():
-	$Accept.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$Accept.position = Vector2(game_size[0] * 0.9 - $Accept.size[0] * 0.5,
-								 game_size[1] * 0.4 - $Accept.size[1] * 0.5)
-	
-	$Reject.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$Reject.position = Vector2(game_size[0] * 0.9 - $Reject.size[0] * 0.5,
-								 game_size[1] * 0.6 - $Reject.size[1] * 0.5)
-								
 	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
 	$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
 									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5)
