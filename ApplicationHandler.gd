@@ -114,6 +114,12 @@ func clamp_window(window):
 	window.position.y = clamp(window.position.y, 0, game_size.y - window.size.y)
 
 func process_application():
+	var mouse_position = get_viewport().get_mouse_position()
+	if (mouse_position[1] <= (game_size[1] * 0.4 + $AcceptButton.size[1] * 0.5)):
+		$AcceptedSound.play()
+	else:
+		$RejectedSound.play()
+		
 	var points
 	if (processing_type != 0):
 		match [processing_type, applications[0].correctness]:

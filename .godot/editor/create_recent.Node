@@ -1,3 +1,4 @@
+AudioStreamPlayer2D
 Timer
 Panel
 PanelContainer
@@ -11,5 +12,3 @@ HBoxContainer
 CanvasLayer
 Node
 Control
-Container
-Window
