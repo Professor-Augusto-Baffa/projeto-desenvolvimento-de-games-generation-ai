@@ -4,3 +4,7 @@ res://Env_verde.tres
 res://Env_vermelho.tres
 res://main_menu.tscn
 res://main_menu.gd
+res://ApplicationHandler.gd
+res://DialogHandler.gd
+res://ToolHandler.gd
+res://Main.gd

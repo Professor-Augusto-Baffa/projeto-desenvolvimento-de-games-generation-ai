@@ -7,8 +7,9 @@ var game_size = DisplayServer.screen_get_size()
 var day : int = 0
 var current_application : int
 var points : int = 0
-var time : Dictionary
+var time : Dictionary = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}
 var slow_time : bool
+var cumulative_slow_time : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,14 +21,38 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	current_application =  get_node("/root/Main/ApplicationHandler").current_application
+	
+	process_time(delta)
+
+func process_time(delta):
+	if (slow_time):
+		cumulative_slow_time += delta
+		if (cumulative_slow_time >= 0.5):
+			time["milisseconds"] += 1
+			cumulative_slow_time -= 0.5
+	else:
+		delta *= 1000
+		time["milisseconds"] += int(delta)
+	if (time["milisseconds"] >= 1000):
+		time["milisseconds"] -= 1000
+		time["seconds"] += 1
+	if (time["seconds"] >= 60):
+		time["seconds"] -= 60
+		time["minutes"] += 1
+	if (time["minutes"] >= 60):
+		time["minutes"] -= 60
+		time["hours"] += 1
+	$timeLabel.text = str(time["hours"], ":", time["minutes"], ":", time["seconds"], ".", time["milisseconds"])
 
 func _pass_day():
 	if (day != 0):
+		await get_tree().create_timer(1).timeout
 		dialog_begin.emit(day, "end")
 		await $DialogHandler.dialog_end
 	day += 1
 	$dayLabel.text = "Day: " + str(day)
 	time = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}
+	await get_tree().create_timer(1).timeout
 	slow_time = false
 	dialog_begin.emit(day, "begin")
 
@@ -45,3 +70,7 @@ func initialize_labels():
 	$pointLabel.position = Vector2(game_size[0] * 0.2, game_size[1] * 0.05)
 	$pointLabel.show()
 	$pointLabel.text = "Points: " + str(points)
+	
+	$timeLabel.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
+	$timeLabel.position = Vector2(game_size[0] * 0.8, game_size[1] * 0.95)
+	$timeLabel.show()

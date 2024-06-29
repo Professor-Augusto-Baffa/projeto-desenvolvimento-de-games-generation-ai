@@ -24,13 +24,14 @@ texture = ExtResource("3_7t2d4")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.105882, 0.32549, 0.2, 0.878431)
+color = Color(0.0823529, 0.588235, 0.321569, 0.733333)
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_8m7l1")
+expand_mode = 5
 
 [node name="NewGame" type="Button" parent="."]
 layout_mode = 0

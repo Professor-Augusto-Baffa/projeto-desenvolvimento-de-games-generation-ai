@@ -8,20 +8,23 @@ var game_size
 var applications : Array
 var apps_per_day : int
 var current_application : int
-var is_processing_app : bool = false
+var is_processing_app : bool
+var is_processing : bool
 var processing_type : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	halt_game = get_node("/root/Main").halt_game
 	game_size = get_node("/root/Main").game_size
 	applications = Array()
+	is_processing_app = false
+	is_processing = true
 	apps_per_day = 3
 	initialize_processors()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	halt_game = get_node("/root/Main").halt_game
 	if (halt_game):
 		return
 	
@@ -30,19 +33,18 @@ func _process(delta):
 		current_application = 1
 		next_day.emit()
 	
-	if (not is_processing_app):
+	if (is_processing and not is_processing_app):
 		summon_application()
 	
 	unminimize_windows()
 	clamp_windows()
 
 func _on_dialog_begin(_a,_b):
-	if (applications[0].window.is_visible()):
-		
+	if (not applications.is_empty() and applications[0].window.is_visible()):
 		applications[0].window.visible = false
 
 func _on_dialog_end():
-	if (not applications[0].window.is_visible()):
+	if (not applications.is_empty() and not applications[0].window.is_visible()):
 		applications[0].window.visible = true
 
 func _input(event):

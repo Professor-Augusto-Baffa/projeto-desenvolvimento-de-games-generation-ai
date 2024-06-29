@@ -8,7 +8,6 @@ var was_visible : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	halt_game = get_node("/root/Main").halt_game
 	game_size = get_node("/root/Main").game_size
 	tools = Array()
 	was_visible = Array()
@@ -17,6 +16,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	halt_game = get_node("/root/Main").halt_game
 	if (halt_game):
 		return
 	

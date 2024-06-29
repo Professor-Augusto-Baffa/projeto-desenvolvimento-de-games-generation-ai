@@ -9,7 +9,6 @@ var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
-	halt_game = get_node("/root/Main").halt_game
 	game_size = get_node("/root/Main").game_size
 	all_dialogs = read_json_file("res://all_dialogs.json")
 	print(all_dialogs[str(1)]["begin"][str(1)])
@@ -17,6 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	halt_game = get_node("/root/Main").halt_game
 	if (halt_game):
 		return
 	
@@ -27,7 +27,9 @@ func _on_dialog_begin(day, stage):
 	var length = len(current_dialog)
 	var min_time
 	var max_time
+	$Filter.visible = true
 	$DialogBorder.visible = true
+	$MouseCatcher.visible = true
 	for i in range(1, length + 1):
 		if (current_dialog[str(i)]["speaker"] == "CEO"):
 			$DialogBorder.color = Color(1,1,1)
@@ -43,34 +45,13 @@ func _on_dialog_begin(day, stage):
 		var text_len = len(text)
 		for j in range(text_len):
 			await get_tree().create_timer(rng.randf_range(min_time, max_time)).timeout
-			var sound = rng.randi_range(1, 11)
-			match sound:
-				1:
-					$KeyPressSound1.play()
-				2:
-					$KeyPressSound2.play()
-				3:
-					$KeyPressSound3.play()
-				4:
-					$KeyPressSound4.play()
-				5:
-					$KeyPressSound5.play()
-				6:
-					$KeyPressSound6.play()
-				7:
-					$KeyPressSound7.play()
-				8:
-					$KeyPressSound8.play()
-				9:
-					$KeyPressSound9.play()
-				10:
-					$KeyPressSound10.play()
+			#get_node("SoundContainer/KeyPressSound" + str(rng.randi_range(1, 11))).play()
 			$DialogBorder/DialogBg/Dialog.add_text(text[j])
-		await InputEventMouseButton
+		await $MouseCatcher.pressed
 		$DialogBorder/DialogBg/Dialog.clear()
-		
-	
+	$Filter.visible = false 
 	$DialogBorder.visible = false
+	$MouseCatcher.visible = false
 	dialog_end.emit()
 
 #func _input(event):
@@ -81,6 +62,9 @@ func _on_dialog_begin(day, stage):
 		#print("Mouse Motion at: ", event.position)
 
 func initialize_dialog():
+	$Filter.size = game_size
+	$MouseCatcher.size = game_size
+	
 	$DialogBorder.size = Vector2(game_size[0] * 0.6, game_size[1] * 0.6)
 	$DialogBorder.position = Vector2(game_size[0] * 0.5 - $DialogBorder.size[0] * 0.5,
 									game_size[1] * 0.5 - $DialogBorder.size[1] * 0.5)
