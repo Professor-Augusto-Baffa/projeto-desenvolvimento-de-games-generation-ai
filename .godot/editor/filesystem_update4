@@ -1,10 +1,10 @@
 res://Main.tscn
-res://Pause.tres
 res://Env_verde.tres
-res://Env_vermelho.tres
 res://main_menu.tscn
-res://main_menu.gd
 res://ApplicationHandler.gd
-res://DialogHandler.gd
+res://Env_vermelho.tres
+res://Pause.tres
 res://ToolHandler.gd
-res://Main.gd
+res://main_menu.gd
+res://DialogHandler.gd
+res://all_dialogs.json

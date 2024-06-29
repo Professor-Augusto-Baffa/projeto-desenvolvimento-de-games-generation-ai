@@ -47,7 +47,7 @@ func _on_dialog_begin(day, stage):
 		var text_len = len(text)
 		for j in range(text_len):
 			await get_tree().create_timer(rng.randf_range(min_time, max_time)).timeout
-			#get_node("SoundContainer/KeyPressSound" + str(rng.randi_range(1, 32))).play()
+			get_node("SoundContainer/KeyPressSound" + str(rng.randi_range(1, 32))).play()
 			$DialogBorder/DialogBg/Dialog.add_text(text[j])
 		slow_time = true
 		await $MouseCatcher.pressed
