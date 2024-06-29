@@ -3,11 +3,10 @@ extends Node
 var halt_game : bool = true
 var game_size = DisplayServer.screen_get_size()
 var dialog : bool = false
-var current_dialog : Dictionary
 var day : int = 0
 var points : int = 0
 var time : Dictionary
-var slow_time : bool = true
+var slow_time : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,6 +59,8 @@ func _pass_day():
 	end_day_dialog()
 	day += 1
 	$dayLabel.text = "Day: " + str(day)
+	time = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}
+	slow_time = false
 	begin_day_dialog()
 
 func _compute_points(variance):
