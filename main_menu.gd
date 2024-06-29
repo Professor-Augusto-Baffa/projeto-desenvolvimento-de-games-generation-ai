@@ -17,6 +17,9 @@ func _on_NewGame_pressed():
 	$MenuMusic.stop()
 	get_tree().change_scene_to_file("res://Main.tscn")
 
+func _on_QuitButton_pressed():
+	get_tree().quit()
+
 func initialize_buttons():
 	$Background.size = Vector2(game_size[0], game_size[1])
 	$ColorRect.size = Vector2(game_size[0], game_size[1])

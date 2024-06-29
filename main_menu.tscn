@@ -46,6 +46,6 @@ text = "Quit"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_vw3kb")
-volume_db = 9.65
 
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_QuitButton_pressed"]
