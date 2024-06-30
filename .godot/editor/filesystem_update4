@@ -1,7 +1,7 @@
 res://Main.tscn
-res://all_dialogs.json
 res://Pause.tres
 res://Env_verde.tres
 res://Env_vermelho.tres
 res://main_menu.tscn
-res://Main.gd
+res://ApplicationHandler.gd
+res://ToolHandler.gd

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-signal dialog_end
+signal dialog_end(type)
 
 var halt_game
 var game_size
@@ -55,7 +55,7 @@ func _on_dialog_begin(day, stage):
 	$Filter.visible = false 
 	$DialogBorder.visible = false
 	$MouseCatcher.visible = false
-	dialog_end.emit()
+	dialog_end.emit(stage)
 
 #func _input(event):
    ## Mouse in viewport coordinates.

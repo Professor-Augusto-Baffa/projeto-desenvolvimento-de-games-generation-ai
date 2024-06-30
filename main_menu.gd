@@ -21,8 +21,9 @@ func _on_QuitButton_pressed():
 	get_tree().quit()
 
 func initialize_buttons():
-	$Background.size = Vector2(game_size[0], game_size[1])
-	$ColorRect.size = Vector2(game_size[0], game_size[1])
+	$Background.size = game_size
+	$ColorRect.size = game_size
+	$TextureRect.size = game_size
 	
 	$Logo.size = Vector2(game_size[0] * 0.5, game_size[1] * 0.1)
 	$Logo.position = Vector2(game_size[0]/1.95 - $Logo.size[0]/2,

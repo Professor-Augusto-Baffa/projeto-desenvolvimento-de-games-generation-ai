@@ -17,8 +17,11 @@ func _ready():
 	game_size = get_node("/root/Main").game_size
 	applications = Array()
 	is_processing_app = false
-	is_processing = true
+	is_processing = false
 	apps_per_day = 3
+	appendRandomApplications(apps_per_day)
+	current_application = 1
+	next_day.emit()
 	initialize_processors()
 
 
@@ -28,7 +31,7 @@ func _process(delta):
 	if (halt_game):
 		return
 	
-	if (applications.is_empty()):
+	if (is_processing and applications.is_empty()):
 		appendRandomApplications(apps_per_day)
 		current_application = 1
 		next_day.emit()
@@ -39,13 +42,17 @@ func _process(delta):
 	unminimize_windows()
 	clamp_windows()
 
-func _on_dialog_begin(_a,_b):
+func _on_dialog_begin(_a, type):
 	if (not applications.is_empty() and applications[0].window.is_visible()):
 		applications[0].window.visible = false
+	if (type == "end"):
+		is_processing = false
 
-func _on_dialog_end():
+func _on_dialog_end(type):
 	if (not applications.is_empty() and not applications[0].window.is_visible()):
 		applications[0].window.visible = true
+	if (type == "begin"):
+		is_processing = true
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -75,31 +82,31 @@ func initialize_window():
 func _entered(node):
 	processing_type = node
 	if (node == 1):
-		$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.16)
+		$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.19)
 		$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
-									   game_size[1] * 0.37 - $AcceptButton.size[1] * 0.5)
+									   game_size[1] * 0.365 - $AcceptButton.size[1] * 0.5)
 	if (node == 2):
-		$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.16)
+		$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.19)
 		$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
-										game_size[1] * 0.57 - $RejectButton.size[1] * 0.5)
+										game_size[1] * 0.565 - $RejectButton.size[1] * 0.5)
 
 func _exited():
 	processing_type = 0
 	
-	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
+	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
 	$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
 									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5)
 	
-	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
+	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
 	$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
 									game_size[1] * 0.6 - $RejectButton.size[1] * 0.5)
 
 func initialize_processors():
-	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
+	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
 	$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
 									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5)
 	
-	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
+	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
 	$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
 									game_size[1] * 0.6 - $RejectButton.size[1] * 0.5)
 
@@ -108,7 +115,7 @@ func summon_application():
 	is_processing_app = true
 	
 func clamp_windows():
-	if (applications[0] != null):
+	if (not applications.is_empty() and applications[0] != null):
 		clamp_window(applications[0].window)
 
 func clamp_window(window):
@@ -116,10 +123,9 @@ func clamp_window(window):
 	window.position.y = clamp(window.position.y, 0, game_size.y - window.size.y)
 
 func process_application():
-	var mouse_position = get_viewport().get_mouse_position()
-	if (mouse_position[1] <= (game_size[1] * 0.4 + $AcceptButton.size[1] * 0.5)):
+	if (processing_type == 1):
 		$AcceptedSound.play()
-	else:
+	elif (processing_type == 2):
 		$RejectedSound.play()
 		
 	var points
@@ -140,5 +146,5 @@ func process_application():
 	is_processing_app = false
 
 func unminimize_windows():
-	if (applications[0].window.mode == Window.MODE_MINIMIZED):
+	if (not applications.is_empty() and applications[0].window.mode == Window.MODE_MINIMIZED):
 		applications[0].window.mode = Window.MODE_WINDOWED

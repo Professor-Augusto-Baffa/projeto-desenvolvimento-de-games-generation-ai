@@ -31,7 +31,7 @@ func _on_dialog_begin(_a,_b):
 		else:
 			was_visible.append(0)
 
-func _on_dialog_end():
+func _on_dialog_end(_type):
 	for window in tools:
 		if (was_visible[0]):
 			window.visible = true
@@ -63,7 +63,7 @@ func initialize_window():
 	newWindow.always_on_top = true
 	newWindow.transparent = true
 	newWindow.transparent_bg = true
-	newWindow.size = Vector2(game_size[0] * 0.25, game_size[1] * 0.3)
+	newWindow.size = Vector2(game_size[0] * 0.3, game_size[1] * 0.35)
 	newWindow.position = Vector2(game_size[0] * 0.5 - newWindow.size[0] * 0.5,
 								   game_size[1] * 0.5 - newWindow.size[1] * 0.5)
 	newWindow.unresizable = true
