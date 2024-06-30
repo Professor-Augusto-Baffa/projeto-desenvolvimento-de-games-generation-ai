@@ -1,10 +1,11 @@
 res://Main.tscn
-res://all_dialogs.json
-<<<<<<< Updated upstream
-=======
-res://Pause.tres
 res://Env_verde.tres
-res://Env_vermelho.tres
 res://main_menu.tscn
->>>>>>> Stashed changes
+res://ApplicationHandler.gd
+res://Env_vermelho.tres
+res://Pause.tres
+res://ToolHandler.gd
+res://main_menu.gd
+res://DialogHandler.gd
+res://all_dialogs.json
 res://Main.gd
