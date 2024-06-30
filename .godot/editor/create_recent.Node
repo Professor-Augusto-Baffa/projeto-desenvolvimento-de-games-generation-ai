@@ -1,6 +1,8 @@
+Button
+Control
+Popup
 AudioStreamPlayer2D
 ColorRect
-Button
 HBoxContainer
 RichTextLabel
 VBoxContainer
@@ -8,7 +10,5 @@ ScrollContainer
 TextureRect
 Label
 CanvasLayer
-Control
 Container
 Timer
-Panel

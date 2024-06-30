@@ -2,8 +2,8 @@ res://Main.tscn
 res://Pause.tres
 res://Env_verde.tres
 res://Env_vermelho.tres
+res://Tool.gd
+res://ToolHandler.gd
 res://main_menu.tscn
 res://jornal.tscn
-res://jornal.gd
-res://main_menu.gd
 res://Main.gd

@@ -1,2 +1,2 @@
-﻿58709
-C:/Users/Usuário/Desktop/Godot_v4.2.1-stable_mono_win64.exe
+﻿65043
+D:/Stuff/Godot/Godot_v4.2.1-stable_mono_win64/Godot_v4.2.1-stable_mono_win64.exe

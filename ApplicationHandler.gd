@@ -7,21 +7,17 @@ var halt_game
 var game_size
 var applications : Array
 var apps_per_day : int
-var current_application : int
-var is_processing_app : bool
+var current_application : Application
 var is_processing : bool
 var processing_type : int
+#var previous_what
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_size = get_node("/root/Main").game_size
 	applications = Array()
-	is_processing_app = false
 	is_processing = false
 	apps_per_day = 3
-	appendRandomApplications(apps_per_day)
-	current_application = 1
-	next_day.emit()
 	initialize_processors()
 
 
@@ -29,35 +25,52 @@ func _ready():
 func _process(delta):
 	halt_game = get_node("/root/Main").halt_game
 	if (halt_game):
+		if (current_application.window.is_visible()):
+			current_application.window.visible = false
 		return
 	
-	if (is_processing and applications.is_empty()):
+	if (applications.is_empty()):
 		appendRandomApplications(apps_per_day)
-		current_application = 1
 		next_day.emit()
 	
-	if (is_processing and not is_processing_app):
-		summon_application()
-	
-	unminimize_windows()
-	clamp_windows()
+	if (current_application != null):
+		if (is_processing and not current_application.window.is_visible()):
+			current_application.window.visible = true
+		
+		unminimize_windows()
+		clamp_windows()
 
 func _on_dialog_begin(_a, type):
-	if (not applications.is_empty() and applications[0].window.is_visible()):
-		applications[0].window.visible = false
+	if (current_application != null and current_application.window.is_visible()):
+		current_application.window.visible = false
 	if (type == "end"):
 		is_processing = false
 
 func _on_dialog_end(type):
-	if (not applications.is_empty() and not applications[0].window.is_visible()):
-		applications[0].window.visible = true
+	if (current_application != null and not current_application.window.is_visible()):
+		current_application.window.visible = true
 	if (type == "begin"):
 		is_processing = true
+		current_application = applications[0]
+		print(applications)
 
-func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		var mouse_position = get_viewport().get_mouse_position()
-		print(mouse_position)
+#func _notification(what):
+	#if what == get_tree().NOTIFICATION_APPLICATION_FOCUS_IN:
+		#print("a")
+		#if (previous_what == get_tree().NOTIFICATION_APPLICATION_FOCUS_OUT):
+			#print("c")
+	#if what == get_tree().NOTIFICATION_APPLICATION_FOCUS_OUT:
+		#print("b")
+	#previous_what = what
+
+#func _input(event):
+	#print(event)
+	#if event == get_tree().NOTIFICATION_APPLICATION_FOCUS_IN:
+		#if (current_application != null and is_processing and not current_application.window.is_visible()):
+			#current_application.window.visible = true
+	#if event == get_tree().NOTIFICATION_APPLICATION_FOCUS_OUT:
+		#if (current_application != null and is_processing and current_application.window.is_visible()):
+			#current_application.window.visible = false
 
 func appendRandomApplications(num):
 	for i in range(num):
@@ -66,11 +79,12 @@ func appendRandomApplications(num):
 		app.window.title = str(i+1)
 		app.correctness = true
 		app.points = 1
+		app.day_id = i + 1
 		applications.append(app)
 
 func initialize_window():
 	var newWindow : Window = Window.new()
-	newWindow.hide()
+	newWindow.visible = false
 	self.add_child(newWindow)
 	newWindow.always_on_top = true
 	newWindow.size = Vector2(game_size[0] * 0.25, game_size[1] * 0.3)
@@ -110,13 +124,10 @@ func initialize_processors():
 	$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
 									game_size[1] * 0.6 - $RejectButton.size[1] * 0.5)
 
-func summon_application():
-	applications[0].window.show()
-	is_processing_app = true
-	
+
 func clamp_windows():
-	if (not applications.is_empty() and applications[0] != null):
-		clamp_window(applications[0].window)
+	if (not applications.is_empty() and current_application != null):
+		clamp_window(current_application.window)
 
 func clamp_window(window):
 	window.position.x = clamp(window.position.x, 0, game_size.x - window.size.x)
@@ -127,24 +138,27 @@ func process_application():
 		$AcceptedSound.play()
 	elif (processing_type == 2):
 		$RejectedSound.play()
+	else:
+		return
 		
 	var points
 	if (processing_type != 0):
-		match [processing_type, applications[0].correctness]:
+		match [processing_type, current_application.correctness]:
 			[1,true]:
-				points = applications[0].points
+				points = current_application.points
 			[1,false]:
-				points = -applications[0].points
+				points = -current_application.points
 			[2,true]:
-				points = -applications[0].points
+				points = -current_application.points
 			[2,false]:
-				points = applications[0].points
-	current_application += 1
-	applications[0].window.hide()
+				points = current_application.points
+	current_application.window.visible = false
+	current_application = null
 	applications.remove_at(0)
+	if (not applications.is_empty()):
+		current_application = applications[0]
 	app_processed.emit(points)
-	is_processing_app = false
 
 func unminimize_windows():
-	if (not applications.is_empty() and applications[0].window.mode == Window.MODE_MINIMIZED):
-		applications[0].window.mode = Window.MODE_WINDOWED
+	if (not applications.is_empty() and current_application.window.mode == Window.MODE_MINIMIZED):
+		current_application.window.mode = Window.MODE_WINDOWED

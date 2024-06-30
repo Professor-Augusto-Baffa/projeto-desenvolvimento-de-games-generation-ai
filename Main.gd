@@ -5,7 +5,7 @@ signal dialog_begin(day, stage)
 var halt_game : bool = false
 var game_size = DisplayServer.screen_get_size()
 var day : int = 0
-var current_application : int
+var current_application
 var points : int = 0
 var time
 var slow_time : bool
@@ -25,7 +25,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	current_application =  get_node("/root/Main/ApplicationHandler").current_application
+	current_application = get_node("/root/Main/ApplicationHandler").current_application
 	slow_time = get_node("/root/Main/DialogHandler").slow_time
 	
 	process_time(delta)
@@ -53,13 +53,23 @@ func process_time(delta):
 
 func _pass_day():
 	if (day != 0):
+		$DialogHandler/MouseCatcher.visible = true
 		await get_tree().create_timer(1).timeout
+		$DialogHandler/MouseCatcher.visible = false
+		
 		dialog_begin.emit(day, "end")
+		
 		await $DialogHandler.dialog_end
+	
 	day += 1
 	$dayLabel.text = "Day: " + str(day)
+	
 	time = {"hours": 3, "minutes": rng.randi_range(0, 14), "seconds": rng.randi_range(0, 59), "milisseconds": rng.randi_range(0, 999)}
+	
+	$DialogHandler/MouseCatcher.visible = true
 	await get_tree().create_timer(1).timeout
+	$DialogHandler/MouseCatcher.visible = false
+	
 	dialog_begin.emit(day, "begin")
 
 func _compute_points(variance):
