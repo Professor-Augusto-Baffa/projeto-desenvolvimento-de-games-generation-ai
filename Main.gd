@@ -10,10 +10,12 @@ var points : int = 0
 var time : Dictionary = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}
 var slow_time : bool
 var cumulative_slow_time : float
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.get_viewport().set_embedding_subwindows(false)
+	rng.randomize()
 	$Background.size = game_size
 	$Circuitinho.size = Vector2(game_size[0] * 1.2, game_size[1] * 1.2)
 	$ToolBar.size = Vector2(game_size[0] * 0.15, game_size[1])
@@ -44,7 +46,7 @@ func process_time(delta):
 	if (time["minutes"] >= 60):
 		time["minutes"] -= 60
 		time["hours"] += 1
-	$timeLabel.text = str(time["hours"], ":", time["minutes"], ":", time["seconds"], ".", time["milisseconds"])
+	$timeLabel.text = "%02d:%02d:%02d.%03d" % [time["hours"], time["minutes"], time["seconds"], time["milisseconds"]]
 
 func _pass_day():
 	if (day != 0):
@@ -53,7 +55,7 @@ func _pass_day():
 		await $DialogHandler.dialog_end
 	day += 1
 	$dayLabel.text = "Day: " + str(day)
-	time = {"hours": 3, "minutes": 0, "seconds": 0, "milisseconds": 0}
+	time = {"hours": 3, "minutes": rng.randi_range(0, 15), "seconds": rng.randi_range(0, 59), "milisseconds": 0}
 	await get_tree().create_timer(1).timeout
 	dialog_begin.emit(day, "begin")
 
