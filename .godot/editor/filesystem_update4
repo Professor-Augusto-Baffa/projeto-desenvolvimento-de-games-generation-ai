@@ -3,5 +3,6 @@ res://Pause.tres
 res://Env_verde.tres
 res://Env_vermelho.tres
 res://main_menu.tscn
-res://ApplicationHandler.gd
-res://ToolHandler.gd
+res://jornal.tscn
+res://jornal.gd
+res://main_menu.gd
