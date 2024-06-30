@@ -16,6 +16,7 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	self.get_viewport().set_embedding_subwindows(false)
 	rng.randomize()
+	$AmbientMusic.play()
 	$Background.size = game_size
 	$Circuitinho.size = Vector2(game_size[0] * 1.2, game_size[1] * 1.2)
 	$Circuitinho.position = Vector2(game_size[0]/2 - $Circuitinho.size[0]/2, game_size[1]/2 - $Circuitinho.size[1]/2)

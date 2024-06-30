@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://duy227u7n7owm"]
+[gd_scene load_steps=7 format=3 uid="uid://duy227u7n7owm"]
 
 [ext_resource type="Script" path="res://jornal.gd" id="1_sm1y8"]
 [ext_resource type="Texture2D" uid="uid://ccovrypcgknkm" path="res://Sprites/bg_vandalizado.png" id="2_56jgs"]
 [ext_resource type="FontFile" uid="uid://btgucugxn3vdr" path="res://Font/accid___.ttf" id="3_l2u52"]
+[ext_resource type="FontFile" uid="uid://b0svlp7opiqsw" path="res://Font/FiraCode-Bold.ttf" id="4_6xwcc"]
+[ext_resource type="FontFile" uid="uid://dhihwd7kdj6dq" path="res://Font/LinLibertine_R.ttf" id="4_boa5v"]
+[ext_resource type="AudioStream" uid="uid://c51k063iggja4" path="res://Audio/final_monotono.wav" id="6_2g2vb"]
 
 [node name="Jornal" type="Control"]
 layout_mode = 3
@@ -16,6 +19,13 @@ layout_mode = 0
 offset_right = 3582.0
 offset_bottom = 2337.0
 texture = ExtResource("2_56jgs")
+expand_mode = 1
+
+[node name="BgTransparente" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.635294, 0.635294, 0.635294, 0.627451)
 
 [node name="Border" type="ColorRect" parent="."]
 layout_mode = 0
@@ -52,14 +62,16 @@ vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_l2u52")
+theme_override_colors/default_color = Color(0.054902, 0.054902, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("4_boa5v")
 theme_override_font_sizes/normal_font_size = 30
-text = "OSOOCOASM
+text = "OSsadfasda
 ASLJDA
-AD FASKDFNIA SJDFN SD FKSA DF  SJ JASNDFJAS FASFNSDIFNASFN S
-S FNMSANFD  
-ASDFJM ASDFSAF A 
-SADF LASDF MASKF SAFOSOOCOASM
+AD FASKDFasdNIA asdasdSJ asd aFN SD FKSA DF  SJ JASNDFJAS FASFNSDIF asd as asdad aASFN Sfdffasdfasdf asdf adfg 
+
+S FNMSAad asd asd asd as asdasdasdfdgfhdsfh zg asfsdNFD  
+ASDFJM A ad dasSDFSAF A 
+SADF LASDF Md ad asd ASKF SAFOSOOCOASM
 ASLJDA
 AD FASKDFNIA SJDFN SD FKSA DF  SJ JASNDFJAS FASFNSDIFNASFN S
 S FNMSANFD  
@@ -107,3 +119,15 @@ ASDFJM ASDFSAF A
 SADF LASDF MASKF SAF "
 fit_content = true
 scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("4_6xwcc")
+text = "Continue"
+
+[node name="JornalMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2g2vb")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

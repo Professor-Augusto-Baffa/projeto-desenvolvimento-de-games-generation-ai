@@ -15,7 +15,7 @@ func _process(delta):
 
 func _on_NewGame_pressed():
 	$MenuMusic.stop()
-	get_tree().change_scene_to_file("res://Main.tscn")
+	get_tree().change_scene_to_file("res://jornal.tscn")
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
