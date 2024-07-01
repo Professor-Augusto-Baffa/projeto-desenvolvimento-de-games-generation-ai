@@ -1,10 +1,192 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5650j7wh0o21"]
+[gd_scene load_steps=14 format=3 uid="uid://b5650j7wh0o21"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_uqrlr"]
 [ext_resource type="AudioStream" uid="uid://bgwkk42mlrar7" path="res://Audio/menu_inicial.wav" id="2_vw3kb"]
 [ext_resource type="Texture2D" uid="uid://dbrk5n03q1jqq" path="res://Sprites/tela_menu.png" id="3_7t2d4"]
 [ext_resource type="Texture2D" uid="uid://3rf4vanswmlc" path="res://Sprites/logo_escrita.png" id="3_8m7l1"]
 [ext_resource type="Texture2D" uid="uid://b0wr38gegjtv3" path="res://Sprites/vinheta.png" id="4_6vx5b"]
+[ext_resource type="Texture2D" uid="uid://h3ytcso6s3hm" path="res://Sprites/subtitulo.png" id="4_urenx"]
+[ext_resource type="FontFile" uid="uid://duu8whkrbirv1" path="res://Font/FiraCode-Medium.ttf" id="6_0qxex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v37ng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls03s"]
+bg_color = Color(0.6, 0.6, 0.6, 0.305882)
+
+[sub_resource type="Animation" id="Animation_nd6pr"]
+resource_name = "fade_in"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/Black:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ToolHandler/YesNoTool:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ToolHandler/Quit:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ApplicationHandler/AcceptButton:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.5, 3.5001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ApplicationHandler/RejectButton:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l10te"]
+resource_name = "fade_out_main"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/Black:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ToolHandler/YesNoTool:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ToolHandler/Quit:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ApplicationHandler/AcceptButton:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ApplicationHandler/RejectButton:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ti2qk"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ymal"]
+_data = {
+"fade_in_main": SubResource("Animation_nd6pr"),
+"fade_out": SubResource("Animation_ti2qk"),
+"fade_out_main": SubResource("Animation_l10te")
+}
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -34,6 +216,13 @@ offset_bottom = 40.0
 texture = ExtResource("3_8m7l1")
 expand_mode = 5
 
+[node name="Subtitle" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_urenx")
+expand_mode = 1
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -44,6 +233,10 @@ texture = ExtResource("4_6vx5b")
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("6_0qxex")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v37ng")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ls03s")
 text = "New Game"
 
 [node name="Quit" type="Button" parent="."]
@@ -54,6 +247,17 @@ text = "Quit"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_vw3kb")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3ymal")
+}
+
+[node name="Black" type="ColorRect" parent="Transition"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_QuitButton_pressed"]

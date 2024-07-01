@@ -86,9 +86,9 @@ func initialize_window():
 	newWindow.always_on_top = true
 	newWindow.transparent = true
 	newWindow.transparent_bg = true
-	newWindow.size = Vector2(game_size[0] * 0.3, game_size[1] * 0.35)
-	newWindow.position = Vector2(game_size[0] * 0.5 - newWindow.size[0] * 0.5,
-								   game_size[1] * 0.5 - newWindow.size[1] * 0.5)
+	newWindow.size = Vector2(game_size.x * 0.3, game_size.y * 0.35)
+	newWindow.position = Vector2(game_size.x * 0.5 - newWindow.size[0] * 0.5,
+								   game_size.y * 0.5 - newWindow.size[1] * 0.5)
 	newWindow.unresizable = true
 	newWindow.close_requested.connect(_on_CloseWindow.bind(newWindow))
 	return newWindow
@@ -108,7 +108,7 @@ func unminimize_windows():
 			tool.window.mode = Window.MODE_WINDOWED
 
 func initialize_buttons():
-	$YesNoTool.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.1)
-	$YesNoTool.position = Vector2(game_size[0] * 0.025, game_size[1] * 0.05)
-	$Quit.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.17)
-	$Quit.position = Vector2(game_size[0] * 0.025, game_size[1] * 0.8)
+	$YesNoTool.size = Vector2(game_size.x * 0.07, game_size.x * 0.07)
+	$YesNoTool.position = Vector2(game_size.x * 0.039, game_size.y * 0.05)
+	$Quit.size = Vector2(game_size.x * 0.1, game_size.y * 0.17)
+	$Quit.position = Vector2(game_size.x * 0.025, game_size.y * 0.8)

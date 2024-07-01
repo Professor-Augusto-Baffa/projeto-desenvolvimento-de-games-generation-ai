@@ -52,7 +52,6 @@ func _on_dialog_end(type):
 	if (type == "begin"):
 		is_processing = true
 		current_application = applications[0]
-		print(applications)
 
 #func _notification(what):
 	#if what == get_tree().NOTIFICATION_APPLICATION_FOCUS_IN:
@@ -87,42 +86,42 @@ func initialize_window():
 	newWindow.visible = false
 	self.add_child(newWindow)
 	newWindow.always_on_top = true
-	newWindow.size = Vector2(game_size[0] * 0.25, game_size[1] * 0.3)
-	newWindow.position = Vector2(game_size[0] * 0.5 - newWindow.size[0] * 0.5,
-								 game_size[1] * 0.5 - newWindow.size[1] * 0.5)
+	newWindow.size = Vector2(game_size.x * 0.25, game_size.y * 0.3)
+	newWindow.position = Vector2(game_size.x * 0.5 - newWindow.size[0] * 0.5,
+								 game_size.y * 0.5 - newWindow.size[1] * 0.5)
 	newWindow.unresizable = true
 	return newWindow
 
 func _entered(node):
 	processing_type = node
 	if (node == 1):
-		$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.19)
-		$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
-									   game_size[1] * 0.365 - $AcceptButton.size[1] * 0.5)
+		$AcceptButton.size = Vector2(game_size.x * 0.1, game_size.y * 0.19)
+		$AcceptButton.position = Vector2(game_size.x * 0.9 - $AcceptButton.size[0] * 0.5,
+									   game_size.y * 0.365 - $AcceptButton.size[1] * 0.5)
 	if (node == 2):
-		$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.19)
-		$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
-										game_size[1] * 0.565 - $RejectButton.size[1] * 0.5)
+		$RejectButton.size = Vector2(game_size.x * 0.1, game_size.y * 0.19)
+		$RejectButton.position = Vector2(game_size.x * 0.9 - $RejectButton.size[0] * 0.5,
+										game_size.y * 0.565 - $RejectButton.size[1] * 0.5)
 
 func _exited():
 	processing_type = 0
 	
-	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
-	$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
-									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5)
+	$AcceptButton.size = Vector2(game_size.x * 0.1, game_size.y * 0.12)
+	$AcceptButton.position = Vector2(game_size.x * 0.9 - $AcceptButton.size[0] * 0.5,
+									   game_size.y * 0.4 - $AcceptButton.size[1] * 0.5)
 	
-	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
-	$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
-									game_size[1] * 0.6 - $RejectButton.size[1] * 0.5)
+	$RejectButton.size = Vector2(game_size.x * 0.1, game_size.y * 0.12)
+	$RejectButton.position = Vector2(game_size.x * 0.9 - $RejectButton.size[0] * 0.5,
+									game_size.y * 0.6 - $RejectButton.size[1] * 0.5)
 
 func initialize_processors():
-	$AcceptButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
-	$AcceptButton.position = Vector2(game_size[0] * 0.9 - $AcceptButton.size[0] * 0.5,
-									   game_size[1] * 0.4 - $AcceptButton.size[1] * 0.5)
+	$AcceptButton.size = Vector2(game_size.x * 0.1, game_size.y * 0.12)
+	$AcceptButton.position = Vector2(game_size.x * 0.9 - $AcceptButton.size[0] * 0.5,
+									   game_size.y * 0.4 - $AcceptButton.size[1] * 0.5)
 	
-	$RejectButton.size = Vector2(game_size[0] * 0.1, game_size[1] * 0.12)
-	$RejectButton.position = Vector2(game_size[0] * 0.9 - $RejectButton.size[0] * 0.5,
-									game_size[1] * 0.6 - $RejectButton.size[1] * 0.5)
+	$RejectButton.size = Vector2(game_size.x * 0.1, game_size.y * 0.12)
+	$RejectButton.position = Vector2(game_size.x * 0.9 - $RejectButton.size[0] * 0.5,
+									game_size.y * 0.6 - $RejectButton.size[1] * 0.5)
 
 
 func clamp_windows():

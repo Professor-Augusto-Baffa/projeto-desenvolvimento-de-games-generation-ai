@@ -12,7 +12,6 @@ func _ready():
 	rng.randomize()
 	game_size = get_node("/root/Main").game_size
 	all_dialogs = read_json_file("res://all_dialogs.json")
-	print(all_dialogs[str(1)]["begin"][str(1)])
 	initialize_dialog()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,13 +35,13 @@ func _on_dialog_begin(day, stage):
 		if (current_dialog[str(i)]["speaker"] == "CEO"):
 			$DialogBorder.color = Color(1,1,1)
 			$DialogBorder/DialogBg/Dialog.push_color(Color(1,1,1))
-			min_time = 0.08
-			max_time = 0.15
+			min_time = 0.05
+			max_time = 0.07
 		elif (current_dialog[str(i)]["speaker"] == "hacker"):
 			$DialogBorder.color = Color(1,0,0)
 			$DialogBorder/DialogBg/Dialog.push_color(Color(1,0,0))
-			min_time = 0.04
-			max_time = 0.09
+			min_time = 0.03
+			max_time = 0.045
 		var text = current_dialog[str(i)]["content"]
 		var text_len = len(text)
 		for j in range(text_len):
@@ -68,9 +67,9 @@ func initialize_dialog():
 	$Filter.size = game_size
 	$MouseCatcher.size = game_size
 	
-	$DialogBorder.size = Vector2(game_size[0] * 0.6, game_size[1] * 0.6)
-	$DialogBorder.position = Vector2(game_size[0] * 0.5 - $DialogBorder.size[0] * 0.5,
-									game_size[1] * 0.5 - $DialogBorder.size[1] * 0.5)
+	$DialogBorder.size = Vector2(game_size.x * 0.6, game_size.y * 0.6)
+	$DialogBorder.position = Vector2(game_size.x * 0.5 - $DialogBorder.size[0] * 0.5,
+									game_size.y * 0.5 - $DialogBorder.size[1] * 0.5)
 	
 	$DialogBorder/DialogBg.size = $DialogBorder.size - Vector2(10, 10)
 	$DialogBorder/DialogBg.position = Vector2(5, 5)
