@@ -23,6 +23,7 @@ func _ready():
 	$Circuitinho.size = Vector2(game_size.x * 1.2, game_size.y * 1.2)
 	$Circuitinho.position = Vector2(game_size.x/2 - $Circuitinho.size[0]/2, game_size.y/2 - $Circuitinho.size[1]/2)
 	$ToolBar.size = Vector2(game_size.x * 0.15, game_size.y)
+	$DialogHandler/MouseCatcher.visible = true
 	initialize_labels()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

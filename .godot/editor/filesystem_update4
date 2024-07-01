@@ -2,9 +2,9 @@ res://Main.tscn
 res://Pause.tres
 res://Env_verde.tres
 res://Env_vermelho.tres
+res://all_dialogs.json
 res://main_menu.tscn
 res://jornal.tscn
 res://credits.tscn
+res://ApplicationHandler.gd
 res://Main.gd
-res://all_dialogs.json
-res://credits.gd

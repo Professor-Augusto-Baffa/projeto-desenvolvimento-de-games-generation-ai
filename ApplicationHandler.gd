@@ -45,15 +45,16 @@ func _process(delta):
 func _on_dialog_begin(_a, type):
 	if (current_application != null and current_application.window.is_visible()):
 		current_application.window.visible = false
-	if (type == "end"):
+	if (type == "end" or "interrupt" in type):
 		is_processing = false
 
 func _on_dialog_end(type):
 	if (current_application != null and not current_application.window.is_visible()):
 		current_application.window.visible = true
-	if (type == "begin"):
+	if (type == "begin" or "interrupt" in type):
 		is_processing = true
-		current_application = applications[0]
+		if (type == "begin"):
+			current_application = applications[0]
 
 #func _notification(what):
 	#if what == get_tree().NOTIFICATION_APPLICATION_FOCUS_IN:

@@ -8,6 +8,22 @@
 [ext_resource type="FontFile" uid="uid://btgucugxn3vdr" path="res://Fonts/accid___.ttf" id="6_teka3"]
 [ext_resource type="AudioStream" uid="uid://c51k063iggja4" path="res://Audio/final_monotono.wav" id="7_r1psn"]
 
+[sub_resource type="Animation" id="Animation_q2qgy"]
+resource_name = "fade_in_credits"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_nd6pr"]
 resource_name = "fade_in"
 length = 3.5
@@ -188,22 +204,6 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_q2qgy"]
-resource_name = "fade_in_credits"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/Black:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ymal"]
 _data = {
 "fade_in_credits": SubResource("Animation_q2qgy"),
@@ -218,27 +218,32 @@ anchors_preset = 0
 script = ExtResource("1_jy0q0")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1344.0
 offset_bottom = 768.0
 texture = ExtResource("2_i71w3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.0156863, 0.141176, 0.101961, 0.819608)
 
 [node name="Vinheta" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_6hiw5")
 
 [node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_yd7bd")
 expand_mode = 5
 
 [node name="CreditsText" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_fonts/normal_font = ExtResource("5_62f66")
