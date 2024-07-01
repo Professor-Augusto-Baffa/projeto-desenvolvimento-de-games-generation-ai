@@ -11,3 +11,5 @@ res://ApplicationHandler.gd
 res://DialogHandler.gd
 res://ToolHandler.gd
 res://all_dialogs.json
+res://credits.tscn
+res://credits.gd

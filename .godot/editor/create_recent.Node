@@ -1,13 +1,13 @@
-AudioStreamPlayer2D
-ColorRect
 AnimationPlayer
 TextureRect
+RichTextLabel
+AudioStreamPlayer2D
+ColorRect
 Label
 Button
 Control
 Popup
 HBoxContainer
-RichTextLabel
 VBoxContainer
 ScrollContainer
 CanvasLayer
