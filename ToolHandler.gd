@@ -28,17 +28,19 @@ func _process(delta):
 	clamp_windows()
 	unminimize_windows()
 
-func _on_dialog_begin(_a,_b):
-	if (was_visible.is_empty()):
-		for tool in tools:
-			if (tool.window.is_visible()):
-				tool.window.visible = false
-				was_visible.append(1)
-			else:
-				was_visible.append(0)
+func _on_dialog_begin(_a, type):
+	var yesno
+	for tool in tools:
+		if (tool.window.is_visible()):
+			tool.window.visible = false
+			yesno = 1
+		else:
+			yesno = 0
+		if ("interrupt" in type):
+			was_visible.append(yesno)
 
 func _on_dialog_end(type):
-	if (type == "interrupt"):
+	if ("interrupt" in type):
 		for tool in tools:
 			if (was_visible[0]):
 				tool.window.visible = true

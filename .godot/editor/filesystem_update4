@@ -5,3 +5,8 @@ res://Env_vermelho.tres
 res://main_menu.tscn
 res://jornal.tscn
 res://credits.tscn
+res://Main.gd
+res://all_dialogs.json
+res://ApplicationHandler.gd
+res://ToolHandler.gd
+res://jornal.gd

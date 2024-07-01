@@ -13,7 +13,6 @@ func _ready():
 	$Border.position = Vector2(game_size.x/2 - $Border.size[0]/2, game_size.y/2 - $Border.size[1]/2)
 	$ScrollContainer.size = Vector2(game_size.x/2.5, game_size.y * 0.8)
 	$ScrollContainer.position = Vector2(game_size.x/2 - $ScrollContainer.size[0]/2, game_size.y/2 - $ScrollContainer.size[1]/2)
-	#$ScrollContainer/VBoxContainer/Foto.size = Vector2(game_size.x/2.6, game_size.y * 0.7)
 	$Button.size = Vector2(game_size.x * 0.1, game_size.y * 0.04)
 	$Button.position = Vector2(game_size.x - game_size.x/4.5, game_size.y - game_size.y/6.5)
 	$Transition.play("fade_in_news")

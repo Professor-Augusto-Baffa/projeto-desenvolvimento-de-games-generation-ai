@@ -10,10 +10,12 @@ var apps_per_day : int
 var current_application : Application
 var is_processing : bool
 var processing_type : int
+var rng = RandomNumberGenerator.new()
 #var previous_what
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	game_size = get_node("/root/Main").game_size
 	applications = Array()
 	is_processing = false
@@ -76,7 +78,10 @@ func appendRandomApplications(num):
 		var app = Application.new()
 		app.window = initialize_window()
 		app.window.title = str(i+1)
-		app.correctness = true
+		if (rng.randi_range(0, 1) == 1):
+			app.correctness = true
+		else:
+			app.correctness = false
 		app.points = 1
 		app.day_id = i + 1
 		applications.append(app)
