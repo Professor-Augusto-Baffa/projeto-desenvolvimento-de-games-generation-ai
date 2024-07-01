@@ -68,10 +68,11 @@ func _pass_day():
 		$DialogHandler/MouseCatcher.visible = true
 		$Transition.play("fade_out_main")
 		$OffSound.play()
+		await get_tree().create_timer(4).timeout
 		if (day == 2):
 			get_tree().change_scene_to_file("res://credits.tscn")
-			
-	await get_tree().create_timer(4).timeout
+			return
+	
 	$Transition/Black/dayLabel.text = "Day: " + str(day)
 	$Transition/Black/dayLabel.visible = true
 	await get_tree().create_timer(2).timeout

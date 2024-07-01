@@ -1,6 +1,6 @@
+Control
 Timer
 AudioStreamPlayer2D
-Control
 AnimationPlayer
 TextureRect
 RichTextLabel
@@ -12,4 +12,3 @@ HBoxContainer
 VBoxContainer
 ScrollContainer
 CanvasLayer
-Container

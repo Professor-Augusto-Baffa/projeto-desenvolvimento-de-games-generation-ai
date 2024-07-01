@@ -346,7 +346,6 @@ libraries = {
 
 [node name="Black" type="ColorRect" parent="Transition"]
 visible = false
-self_modulate = Color(1, 1, 1, 0.971429)
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)

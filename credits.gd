@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var game_size = DisplayServer.screen_get_size()
 
@@ -9,12 +9,16 @@ func _ready():
 	$Background.size = game_size
 	$ColorRect.size = game_size
 	$Vinheta.size = game_size
+	$Transition/Black.size = game_size
 	
 	$Logo.size = Vector2(game_size.x * 0.5, game_size.y * 0.1)
 	$Logo.position = Vector2(game_size.x/2 - $Logo.size.x/2, game_size.y + $Logo.size.y)
 	$CreditsText.size.x = game_size.x/2
 	$CreditsText.position = Vector2(game_size.x/2 - $CreditsText.size.x/2, game_size.y + ($Logo.size.y * 2))
-
+	$Transition.play("fade_in_credits")
+	await get_tree().create_timer(3.5).timeout
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Logo.position.y -= 2
