@@ -63,7 +63,7 @@ func _pass_day():
 		$Transition.play("fade_out_main")
 		$OffSound.play()
 		await get_tree().create_timer(4).timeout
-		if (day == 3):
+		if (day == 2):
 			get_tree().change_scene_to_file("res://credits.tscn")
 	
 	day += 1

@@ -1,15 +1,7 @@
-res://jornal.tscn
+res://Main.tscn
 res://Pause.tres
 res://Env_verde.tres
 res://Env_vermelho.tres
-res://Main.tscn
 res://main_menu.tscn
-res://Main.gd
-res://jornal.gd
-res://main_menu.gd
-res://ApplicationHandler.gd
-res://DialogHandler.gd
-res://ToolHandler.gd
-res://all_dialogs.json
+res://jornal.tscn
 res://credits.tscn
-res://credits.gd

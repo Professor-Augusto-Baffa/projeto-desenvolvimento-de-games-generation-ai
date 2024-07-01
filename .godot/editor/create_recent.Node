@@ -1,11 +1,12 @@
+Timer
+AudioStreamPlayer2D
+Control
 AnimationPlayer
 TextureRect
 RichTextLabel
-AudioStreamPlayer2D
 ColorRect
 Label
 Button
-Control
 Popup
 HBoxContainer
 VBoxContainer

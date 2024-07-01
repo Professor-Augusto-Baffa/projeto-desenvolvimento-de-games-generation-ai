@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqdyjwbuf5dac"]
+[gd_scene load_steps=8 format=3 uid="uid://dqdyjwbuf5dac"]
 
 [ext_resource type="Script" path="res://credits.gd" id="1_jy0q0"]
 [ext_resource type="Texture2D" uid="uid://dbrk5n03q1jqq" path="res://Sprites/tela_menu.png" id="2_i71w3"]
 [ext_resource type="Texture2D" uid="uid://b0wr38gegjtv3" path="res://Sprites/vinheta.png" id="3_6hiw5"]
 [ext_resource type="Texture2D" uid="uid://3rf4vanswmlc" path="res://Sprites/logo_escrita.png" id="4_yd7bd"]
 [ext_resource type="FontFile" uid="uid://b4gya8idx7v3k" path="res://Fonts/FiraCode-Regular.ttf" id="5_62f66"]
-[ext_resource type="FontFile" uid="uid://b0svlp7opiqsw" path="res://Fonts/FiraCode-Bold.ttf" id="6_hsloh"]
+[ext_resource type="FontFile" uid="uid://btgucugxn3vdr" path="res://Fonts/accid___.ttf" id="6_teka3"]
+[ext_resource type="AudioStream" uid="uid://c51k063iggja4" path="res://Audio/final_monotono.wav" id="7_r1psn"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_jy0q0")
@@ -35,13 +36,64 @@ expand_mode = 5
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_fonts/normal_font = ExtResource("5_62f66")
-theme_override_fonts/bold_font = ExtResource("6_hsloh")
+theme_override_fonts/bold_font = ExtResource("6_teka3")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 42
 bbcode_enabled = true
 text = "[center]
+[b]PRODUCED BY[/b]
 
-ALO
+Luiza Marcondes
+Pedro Mannarino
+
+
+
+[b]GAME DESIGNERS[/b]
+
+Luiza Marcondes
+Pedro Mannarino
+
+
+[b]PROGRAMMERS[/b]
+
+Luiza Marcondes
+Pedro Mannarino
+
+
+[b]ARTS BY[/b]
+
+Luiza Marcondes
+
+
+[b]MUSIC[/b]
+
+\"Brain Damage\"
+Philippe Groarke
+Ambiente gameplay music
+
+
+[b]SOUND EFFECTS[/b]
+
+Some of the sounds in this project were created by David McKee (ViRiX) soundcloud.com/virix
+Machine turning on and off
+
+\"Gonk Gong\"
+dklon
+Rejection sound
+
+
+[b]SPECIAL THANKS TO[/b]
+
+Prof. Augusto Baffa
 [/center]"
 fit_content = true
 scroll_active = false
 
-[node name="Roller" type="AnimationPlayer" parent="."]
+[node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_r1psn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 32.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

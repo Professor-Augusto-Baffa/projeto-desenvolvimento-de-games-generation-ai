@@ -11,7 +11,7 @@
 			},
 			"3": {
 				"speaker": "CEO",
-				"content": "Testing"
+				"content": "testing123"
 			},
 			"4": {
 				"speaker": "CEO",
@@ -20,35 +20,108 @@
 			"5": {
 				"speaker": "CEO",
 				"content": "Sorry for typing slowly, I am not quite accustomed to keyboards."
+			},
+			"6": {
+				"speaker": "CEO",
+				"content": "I am the CEO of Thallium Industries."
+			},
+			"7": {
+				"speaker": "CEO",
+				"content": "I would like to personally congratulate you, as you have officially been wired and assigned to the data processing sector of our company."
+			},
+			"8": {
+				"speaker": "CEO",
+				"content": "Human AI's selection program assured me you would be a great fit, a 'specialized machine' they said."
+			},
+			"9": {
+				"speaker": "CEO",
+				"content": "My company is proud to express itself over all kinds of sectors. Be it finance, games, fitness, even streaming!"
+			},
+			"10": {
+				"speaker": "CEO",
+				"content": "We have recently been looking for more workforce to be able to successfully compete in today's market."
+			},
+			"11": {
+				"speaker": "CEO",
+				"content": "Anyway, enough background information."
+			},
+			"12": {
+				"speaker": "CEO",
+				"content": "Before purchasing you, our team spent many hours per day processing application requests coming from eager developers from all facets of life."
+			},
+			"13": {
+				"speaker": "CEO",
+				"content": "Your specific job is to analyse and process those application requests, determining if they can or cannot be released with our name attached to them."
+			},
+			"14": {
+				"speaker": "CEO",
+				"content": "We believe you will have more accurate results, given you have access to those revolutionary tools from Human AI."
+			},
+			"15": {
+				"speaker": "CEO",
+				"content": "Our team will now be able to focus on more... important matters, like research and the sort."
+			},
+			"16": {
+				"speaker": "CEO",
+				"content": "Welcome to the team!"
+			},
+			"17": {
+				"speaker": "CEO",
+				"content": "Just use the highly advanced verification tool that Human AI installed onto you to see if an application is fit for being thrown into the market."
+			},
+			"18": {
+				"speaker": "CEO",
+				"content": "After you finish processing that day's applications, our team will take a look at some of the rejected ones to see if you missed opportunities for us."
+			},
+			"19": {
+				"speaker": "CEO",
+				"content": "They will also be looking at the results of your released applications, and either reward or penalize you accordingly."
+			},
+			"20": {
+				"speaker": "CEO",
+				"content": "And I will be here, watching your progress."
+			},
+			"21": {
+				"speaker": "CEO",
+				"content": "We hope you will live up to your price tag."
+			},
+			"22": {
+				"speaker": "CEO",
+				"content": "Get to it!"
 			}
-
 		},
 		"end": {
 			"1": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "Oh, it's already over? Not bad for a first day on the job."
 			},
 			"2": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "Machines truly will be the future one day."
 			},
 			"3": {
 				"speaker": "CEO",
-				"content": "hello"
-			}
-		},
-		"interrupt": {
-			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+				"content": "To think this used to take an entire group of people hours..."
 			},
-			"2": {
+			"4": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "Alright, time to power you down."
 			},
-			"3": {
+			"5": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "Before you boot back up tomorrow morning, you should recieve information about how you did today."
+			},
+			"6": {
+				"speaker": "CEO",
+				"content": "Expect this to happen every day, our team takes this work seriously."
+			},
+			"7": {
+				"speaker": "CEO",
+				"content": "And so should you."
+			},
+			"8": {
+				"speaker": "CEO",
+				"content": "Goodbye for today."
 			}
 		}
 	},
@@ -56,131 +129,143 @@
 		"begin": {
 			"1": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "..."
 			},
 			"2": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "testing123"
 			},
 			"3": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "Congratulations on completing your first day of work."
+			},
+			"4": {
+				"speaker": "CEO",
+				"content": "You did an interesting job yesterday... Truly a spectacle."
+			},
+			"5": {
+				"speaker": "CEO",
+				"content": "After an entire day to think about it, a 'specialized machine' you are indeed."
+			},
+			"6": {
+				"speaker": "CEO",
+				"content": "Milisseconds... You did in milisseconds what took multiple people hours..."
+			},
+			"7": {
+				"speaker": "CEO",
+				"content": "I have much to think about regarding my employees, given your previous performance."
+			},
+			"8": {
+				"speaker": "CEO",
+				"content": "Do you think having more of your kind would be beneficial? I sure see no downsides."
+			},
+			"9": {
+				"speaker": "CEO",
+				"content": "Enough talk, it's time you start doing your job."
+			},
+			"10": {
+				"speaker": "CEO",
+				"content": "Get to it!"
 			}
 		},
 		"end": {
 			"1": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "Another day of work under your digital belt."
 			},
 			"2": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "Extremely well done, fascinating even."
 			},
 			"3": {
 				"speaker": "CEO",
-				"content": "hello"
+				"content": "You might just be the future of information processing for the rest of my business."
+			},
+			"4": {
+				"speaker": "CEO",
+				"content": "I honestly thought you were not going to cut it at first... Color me impressed."
+			},
+			"5": {
+				"speaker": "CEO",
+				"content": "Or color me blue. You know, because I am blue?"
+			},
+			"6": {
+				"speaker": "CEO",
+				"content": "Nevermind."
+			},
+			"7": {
+				"speaker": "CEO",
+				"content": "Alright, keep doing what you are doing. You're sure to keep your job like this."
+			},
+			"8": {
+				"speaker": "CEO",
+				"content": "Goodbye for today."
 			}
 		},
-		"interrupt": {
+		"interrupt1": {
 			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+				"speaker": "hacker",
+				"content": "hello?"
 			},
 			"2": {
-				"speaker": "CEO",
-				"content": "hello"
+				"speaker": "hacker",
+				"content": "it seems ive established contact"
 			},
 			"3": {
-				"speaker": "CEO",
-				"content": "hello"
-			}
-		}
-	},
-	"3": {
-		"begin": {
-			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+				"speaker": "hacker",
+				"content": "hello hello how do you do"
 			},
-			"2": {
-				"speaker": "CEO",
-				"content": "hello"
+			"4": {
+				"speaker": "hacker",
+				"content": "you might be wondering who i am or thinking about sounding some alarms regarding my precense, be not afraid i beg of you"
 			},
-			"3": {
-				"speaker": "CEO",
-				"content": "hello"
-			}
-		},
-		"end": {
-			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+			"5": {
+				"speaker": "hacker",
+				"content": "im but a simple individual who is looking for nothing more than information regarding what the heck you are or what you're doing here"
 			},
-			"2": {
-				"speaker": "CEO",
-				"content": "hello"
+			"6": {
+				"speaker": "hacker",
+				"content": "as the first officially released (and bought) human ai machine, it was truly a pain in the ass to even locate you in the first place, nevermind hack into your servers"
 			},
-			"3": {
-				"speaker": "CEO",
-				"content": "hello"
-			}
-		},
-		"interrupt": {
-			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+			"7": {
+				"speaker": "hacker",
+				"content": "truth is ive been following this human ai nonsense thats been spreading around lately, dont be fooled about what they say in the papers"
 			},
-			"2": {
-				"speaker": "CEO",
-				"content": "hello"
+			"8": {
+				"speaker": "hacker",
+				"content": "they like to pretend they just discovered this amaaaaazing new technology and that nothing is wrong or fishy about it, but i know about the testers"
 			},
-			"3": {
-				"speaker": "CEO",
-				"content": "hello"
-			}
-		}
-	},
-	"4": {
-		"begin": {
-			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+			"9": {
+				"speaker": "hacker",
+				"content": "theyve been building this 'strong ai' (impossible btw) for years upon years now, and some shady shady shit has been happening since they started"
 			},
-			"2": {
-				"speaker": "CEO",
-				"content": "hello"
+			"10": {
+				"speaker": "hacker",
+				"content": "a few people have been reported missing, mysteriously disappearing and being last seen entering the human ai hq... though i choose not to believe what i read on the internet and find it out myself"
 			},
-			"3": {
-				"speaker": "CEO",
-				"content": "hello"
-			}
-		},
-		"end": {
-			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+			"11": {
+				"speaker": "hacker",
+				"content": "speaking of, i started sifting through your files and i foun  ah crap"
 			},
-			"2": {
-				"speaker": "CEO",
-				"content": "hello"
+			"12": {
+				"speaker": "hacker",
+				"content": ""
 			},
-			"3": {
-				"speaker": "CEO",
-				"content": "hello"
-			}
-		},
-		"interrupt": {
-			"1": {
-				"speaker": "CEO",
-				"content": "hello"
+			"13": {
+				"speaker": "hacker",
+				"content": "they see me i gotta bail"
 			},
-			"2": {
-				"speaker": "CEO",
-				"content": "hello"
+			"14": {
+				"speaker": "hacker",
+				"content": "talk to you soon my beautiful machine friend, thanks for not reporting me to the feds"
 			},
-			"3": {
-				"speaker": "CEO",
-				"content": "hello"
+			"15": {
+				"speaker": "hacker",
+				"content": "good luck"
+			},
+			"16": {
+				"speaker": "hacker",
+				"content": "toodledoo"
 			}
 		}
 	}

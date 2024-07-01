@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Generation Ai"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.176471, 0.266667, 0.282353, 1)
+boot_splash/image="res://icon.png"
+config/icon="res://icon.png"
 
 [display]
 

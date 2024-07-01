@@ -33,8 +33,8 @@ func _on_dialog_begin(day, stage):
 	for i in range(1, length + 1):
 		slow_time = false
 		if (current_dialog[str(i)]["speaker"] == "CEO"):
-			$DialogBorder.color = Color(1,1,1)
-			$DialogBorder/DialogBg/Dialog.push_color(Color(1,1,1))
+			$DialogBorder.color = Color(0,1,1)
+			$DialogBorder/DialogBg/Dialog.push_color(Color(0,1,1))
 			min_time = 0.05
 			max_time = 0.07
 		elif (current_dialog[str(i)]["speaker"] == "hacker"):
